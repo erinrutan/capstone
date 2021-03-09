@@ -9,6 +9,8 @@
 
     <div class="nav-bar"></div>
 
+    <div class="center"><h1>CNU Rowing Club</h1></div>
+
     <div id="app">
         <div class="product">
 
@@ -16,30 +18,18 @@
                 <img v-bind:src="image"> 
             </div>
 
-            <div class="product-info">
-                <h1>{{ product }}</h1>
-                <p v-if="inventory > 10">In Stock</p>
-                <p v-else-if="inventory <=10 && inventory > 0"> Almost sold out</p>
-                <p v-else>Out of Stock</p>
+            <div class="grid-container">
+                <button v-on:click="windows.location.href='../frontend/schedule.html';">Schedule</button>
 
-                <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
-                </ul>
-
-                <div v-for="variant in variants" :key="variant.variantId">
-                    <p>{{ variant.variantColor }}</p>
-                </div>
-
-                <button v-on:click="addToCart">Add to Cart</button>
-                <div class="cart">
-                    <p>Cart({{ cart }})</p>
-                </div>
-
+                <button>Roster</button>
+                
+                <button>Attendence</button>
             </div>
 
-            
-            
+            <!-- <button v-on:click="addToCart">Schedule</button> -->
 
+            <a href="../frontend/schedule.html">Schedule</a>
+            
         </div>
     </div>
 

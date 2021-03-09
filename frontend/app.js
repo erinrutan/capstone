@@ -2,7 +2,7 @@ var app = new Vue({
     el: '#app', // corresponds with div id in html file
     data: {
         product: 'Socks',
-        image: '../frontend/greensocks.jpg',
+        image: '../frontend/row.jpeg',
         inventory: 100,
         details: ["80% cotton","20% polyester", "Gender-neutral"],
         variants: [
@@ -22,6 +22,12 @@ var app = new Vue({
     methods: {
         addToCart: function () {
             this.cart += 1
+        },
+        goToSchedule: function () {
+            `
+            <a href="../frontend/schedule.html">Schedule</a>
+            `
+            
         }
     }
 })
