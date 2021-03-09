@@ -28,5 +28,12 @@
         }
       }
     }
+  },
+  "function": {
+    "cnurowingclubcdaaaed9": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
   }
 }

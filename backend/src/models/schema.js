@@ -31,6 +31,13 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "location": {
+                    "name": "location",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "memberID": {
                     "name": "memberID",
                     "isArray": false,
@@ -211,6 +218,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "Status": {
+                    "name": "Status",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "SideRowed": {
                     "name": "SideRowed",
                     "isArray": false,
@@ -218,15 +232,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Biography": {
-                    "name": "Biography",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "AvailableFor": {
-                    "name": "AvailableFor",
+                "Create": {
+                    "name": "Create",
                     "isArray": true,
                     "type": {
                         "model": "Event"
@@ -239,8 +246,8 @@ export const schema = {
                         "associatedWith": "memberID"
                     }
                 },
-                "Attends": {
-                    "name": "Attends",
+                "Attend": {
+                    "name": "Attend",
                     "isArray": true,
                     "type": {
                         "model": "MemberEvent"
@@ -252,6 +259,13 @@ export const schema = {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "member"
                     }
+                },
+                "Biography": {
+                    "name": "Biography",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -282,5 +296,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "b13daf07ada6f89aa665f8b2b6a9aa30"
+    "version": "8fe708b2a6941ed9ec839e15731a1226"
 };

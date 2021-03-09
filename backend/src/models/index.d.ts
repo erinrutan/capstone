@@ -9,6 +9,7 @@ export declare class Event {
   readonly Name: string;
   readonly Date: string;
   readonly Description?: string;
+  readonly location?: string;
   readonly memberID: string;
   readonly AttendedBy?: (MemberEvent | null)[];
   constructor(init: ModelInit<Event>);
@@ -28,10 +29,11 @@ export declare class Member {
   readonly Name: string;
   readonly PhoneNumber: string;
   readonly Email: string;
+  readonly Status: string;
   readonly SideRowed?: string;
+  readonly Create?: (Event | null)[];
+  readonly Attend?: (MemberEvent | null)[];
   readonly Biography?: string;
-  readonly AvailableFor?: (Event | null)[];
-  readonly Attends?: (MemberEvent | null)[];
   constructor(init: ModelInit<Member>);
   static copyOf(source: Member, mutator: (draft: MutableModel<Member>) => MutableModel<Member> | void): Member;
 }

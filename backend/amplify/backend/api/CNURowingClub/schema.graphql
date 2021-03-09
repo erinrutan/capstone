@@ -3,6 +3,7 @@ type Event @model @auth(rules: [{allow: public}]) @key(name: "byMember", fields:
   Name: String!
   Date: AWSDateTime!
   Description: String
+  location: String
   memberID: ID!
   AttendedBy: [MemberEvent] @connection(keyName: "byEvent", fields: ["id"])
 }
@@ -12,10 +13,11 @@ type Member @model @auth(rules: [{allow: public}]) {
   Name: String!
   PhoneNumber: AWSPhone!
   Email: AWSEmail!
+  Status: String!
   SideRowed: String
+  Create: [Event] @connection(keyName: "byMember", fields: ["id"])
+  Attend: [MemberEvent] @connection(keyName: "byMember", fields: ["id"])
   Biography: String
-  AvailableFor: [Event] @connection(keyName: "byMember", fields: ["id"])
-  Attends: [MemberEvent] @connection(keyName: "byMember", fields: ["id"])
 }
 
 type MemberEvent @model(queries: null) @key(name: "byEvent", fields: ["eventID", "memberID"]) @key(name: "byMember", fields: ["memberID", "eventID"]) @auth(rules: [{allow: public}, {allow: public}]) {
