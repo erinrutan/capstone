@@ -1,3 +1,6 @@
 var app = new Vue({
-    el: '#schedule'    
+    el: '#schedule',
+    data: {
+        image: '../frontend/back.png'
+    }    
 })

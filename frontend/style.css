@@ -35,8 +35,9 @@ body {
   }
   
   .product-image {
-    width: 80%;
-    text-align: center;
+    width: 50%;
+    height: 50%;
+    text-align: left;
   }
   
   .product-image,
@@ -60,12 +61,13 @@ body {
   
   button {
     margin-top: 30px;
-    border: none;
-    background-color: #1E95EA;
+    border: none; /* 2px solid #84888B; */
+    border-radius: 25px;
+    background-color: #1f78e4; /* #1E95EA; */
     color: white;
-    height: 40px;
-    width: 100px;
-    font-size: 14px;
+    height: 100px;
+    width: 250px;
+    font-size: 25px;
   } 
   
   .disabledButton {

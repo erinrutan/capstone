@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script type="text/javascript">
+        function redirectToURL(btnId){
+            if(btnId=="button1")
+                window.location.replace("../frontend/schedule.html");
+            // else if(btnId=="button2")
+            //     window.location.replace("https://www.google.com");
+            // else if(btnId=="button3")
+            //     window.location.replace("http://www.bing.com/");
+        }
+    </script>
+
 </head>
 <body>  
 
@@ -12,23 +24,49 @@
     <div class="center"><h1>CNU Rowing Club</h1></div>
 
     <div id="app">
+        
+        
         <div class="product">
 
             <div class="product-image">
                 <img v-bind:src="image"> 
             </div>
 
+            <div class="textarea">
             <div class="grid-container">
-                <button v-on:click="windows.location.href='../frontend/schedule.html';">Schedule</button>
+
+                
+                <!-- <input type="button" id="button1" value="Schedule" onClick='redirectToURL(this.id)'/> -->
+                <button id="button1"><a href="../frontend/schedule.html">Schedule</a></button>
 
                 <button>Roster</button>
                 
                 <button>Attendence</button>
             </div>
+            </div>
 
             <!-- <button v-on:click="addToCart">Schedule</button> -->
-
-            <a href="../frontend/schedule.html">Schedule</a>
+      
+	<!-- <head>
+		<title>JavaScript - Redirect to another URL on Button Click.</title>
+		<script type="text/javascript">
+			function redirectToURL(btnId){
+				if(btnId=="button1")
+					window.location.replace("https://en.wikipedia.org/wiki/Main_Page");
+				else if(btnId=="button2")
+					window.location.replace("https://www.google.com");
+				else if(btnId=="button3")
+					window.location.replace("http://www.bing.com/");
+			}
+		</script>
+	</head>
+<body style="text-align: center">
+	<h1>JavaScript - Redirect to another URL on Button Click.<h1>
+	<input type="button" id="button1" value="www.wikipedia.com" onClick='redirectToURL(this.id)'/>
+	<input type="button" id="button2" value="www.google.com" onClick='redirectToURL(this.id)'/>
+	<input type="button" id="button3" value="www.bing.com" onClick='redirectToURL(this.id)'/>
+</body> -->
+            
             
         </div>
     </div>
