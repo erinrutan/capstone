@@ -6,23 +6,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>  
-    <h1>Roster</h1>
+    <div class="nav-bar"></div>
 
-    <div id="schedule">
+    <div class="center"><h1>CNU Rowing Club - Roster</h1></div>
+
+    <div class="product">
+        <div class="grid-container">
+            <back-button onclick="location.href='../frontend/index.html';">
+                <back-img><img src="back_button.png" id="home" width="100" height="100" /></back-img></a>
+            </back-button>
+        </div>
+    </div>
+
+    <div id="roster">
         <div class="home-page">
 
-            <h2>[Insert Roster here]</h2>
+            <div class="center"><h2>[Insert Roster here]</h2></div>
             
         </div>
     </div>
 
-    <div class="textarea">
-        <div class="grid-container">
-            <button onclick="location.href='../frontend/index.html';">Home</a></button>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="schedule.js"></script> 
+    <script src="roster.js"></script> 
 </body>
 </html>
