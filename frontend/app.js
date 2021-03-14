@@ -1,3 +1,7 @@
+// import { Amplify } from 'aws-amplify';
+// import config from './config';
+
+
 var app = new Vue({
     el: '#app', // corresponds with div id in html file
     data: {

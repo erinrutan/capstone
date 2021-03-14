@@ -1,3 +1,6 @@
+<?php
+    include_once '/db.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,10 +36,21 @@
                         <button onclick="location.href='../frontend/settings.html';">Settings</a></button>
                     </div>
 
+                    $conn;
+
                 </div>
             </div>       
         </div>  
     </div>
+
+    <?php
+        $sql = "SELECT * FROM member;";
+        $result = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($result);
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc())
+        }
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="app.js"></script> 
