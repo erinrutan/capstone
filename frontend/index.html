@@ -7,6 +7,11 @@
     <meta charset="UTF-8">
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- bootstrap css -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- disables zooming on mobile, see what happens and get rid if needed -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 </head>
 <body>  
 
@@ -36,21 +41,21 @@
                         <button onclick="location.href='../frontend/settings.html';">Settings</a></button>
                     </div>
 
-                    $conn;
+                    <!-- $conn; -->
 
                 </div>
             </div>       
         </div>  
     </div>
 
-    <?php
+    <!-- <?php
         $sql = "SELECT * FROM member;";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
         if ($resultCheck > 0) {
             while ($row = mysqli_fetch_assoc())
         }
-    ?>
+    ?> -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="app.js"></script> 
