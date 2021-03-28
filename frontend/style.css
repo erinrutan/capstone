@@ -80,3 +80,8 @@ body {
     width: 100%;
     height: 60px;
   }
+
+  .intro {
+    background-image: "../frontend/row2.jpeg";
+    height: 100vh;
+  }

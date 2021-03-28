@@ -2,7 +2,7 @@
 $servername = "localhost";
 $database = "rowing";
 $username = "root";
-$password = "";
+$password = "root";
 
 // Create connection
 
@@ -14,8 +14,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-echo “Connected successfully”;
+echo 'Connected successfully';
 
 mysqli_close($conn);
+
 
 ?>
