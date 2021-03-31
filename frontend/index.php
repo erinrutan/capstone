@@ -45,14 +45,14 @@
                     <div class="center">
                     <div class="row">
                         <div class="col-xs-2">
-                        <button onclick="location.href='../frontend/schedule.html';">Schedule</a></button>
+                        <button onclick="location.href='/C:/Users/Erin/Documents/CNU/capstone/frontend/schedule.html';">Schedule</a></button>
                         </div>
                     </div>
                     <!-- </div>
                     <div class="center"> -->
                     <div class="row">
                         <div class="col-xs-3">
-                        <button onclick="location.href='../frontend/roster.html';">Roster</a></button>
+                        <button onclick="location.href='../frontend/roster.php';">Roster</a></button>
                         </div>
                     </div>
                     <!-- </div>
@@ -87,14 +87,24 @@
                         die("Connection failed: " . $conn->connect_error);
                     }
                     
-                    echo 'Connected successfully';
-                    
-                    mysqli_close($conn);
+                    echo 'Connected successfully <br>';
 
-                    $test = mysqli_query($conn, 'select * from member;');
+
+                    $sql = "SELECT memberid, membername FROM member";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "id: " . $row["memberid"]. " - Name: " . $row["membername"]. "<br>";
+                    }
+                    } else {
+                    echo "0 results";
+                    }
+                    $conn->close();
                     
-                    $conn;
-                    $test;  ?>
+                    // mysqli_close($conn);
+                    ?>
 
             </div>       
         </div>
