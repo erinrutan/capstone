@@ -10,7 +10,7 @@ var app = new Vue({
     methods: {
         goToSchedule: function () {
             `
-            <a href="../frontend/schedule.html">Schedule</a>
+            <a href="schedule.html">Schedule</a>
             `
             
         }

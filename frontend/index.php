@@ -24,7 +24,7 @@
 <body>  
 
     <!-- Background image -->
-    <!-- <div class="bg-image" style=" background-image: '../frontend/row2.jpeg';
+    <!-- <div class="bg-image" style=" background-image: 'row2.jpeg';
     height: 100vh; "></div> -->
     <!-- Background image -->
 
@@ -71,24 +71,20 @@
                     </div>
                     </div>
 
-                    <?php 
+                    <!-- <?php 
                     $servername = "localhost";
                     $database = "rowing";
                     $username = "root";
                     $password = "root";
                     
                     // Create connection
-                    
                     $conn = mysqli_connect($servername, $username, $password, $database);
                     
                     // Check connection
-                    
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
-                    }
-                    
+                    } 
                     echo 'Connected successfully <br>';
-
 
                     $sql = "SELECT memberid, membername FROM member";
                     $result = $conn->query($sql);
@@ -102,9 +98,7 @@
                     echo "0 results";
                     }
                     $conn->close();
-                    
-                    // mysqli_close($conn);
-                    ?>
+                    ?> -->
 
             </div>       
         </div>

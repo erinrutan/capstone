@@ -7,6 +7,28 @@
     <meta charset="UTF-8">
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- For table (MOVE TO STYLE FILE LATER) -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #002C76;
+            font-family:"Quicksand",sans-serif;
+            font-size: 20px;
+            text-align: left;
+            justify-content: center;
+            align-items:center;
+        }
+        th {
+            background-color: #1f78e4;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+    </style>
 </head>
 <body>  
     <div class="nav-bar"></div>
@@ -24,41 +46,41 @@
     <div id="roster">
         <div class="home-page">
 
-            <div class="center"><h2>[Insert Roster here]</h2></div>
-            <!-- <?php 
+            <table>
+            <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Side</th>
+            <th>Biography</th>
+            </tr>
+            <?php 
                     $servername = "localhost";
                     $database = "rowing";
                     $username = "root";
                     $password = "root";
                     
                     // Create connection
-                    
                     $conn = mysqli_connect($servername, $username, $password, $database);
-                    
                     // Check connection
-                    
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    
-                    echo 'Connected successfully <br>';
-
-
-                    $sql = "SELECT memberid, membername FROM member";
+                    $sql = "SELECT membername, memberphoneno, memberemail, memberstatus, membersiderow, memberbio FROM member";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "id: " . $row["memberid"]. " - Name: " . $row["membername"]. "<br>";
+                        echo "<tr><td>" . $row["membername"]. "</td><td>" . $row["memberphoneno"] 
+                        . "</td><td>" . $row["memberemail"] . "</td><td>" . $row["memberstatus"] 
+                        . "</td><td>" . $row["membersiderow"] . "</td><td>" . $row["memberbio"] . "</td></tr>";
                     }
-                    } else {
-                    echo "0 results";
-                    }
+                    echo "</table>";
+                    } else { echo "0 results"; }
                     $conn->close();
-                    
-                    // mysqli_close($conn);
-                    ?> -->
+                    ?>
         </div>
     </div>
 
