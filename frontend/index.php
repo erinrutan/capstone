@@ -45,7 +45,7 @@
                     <div class="center">
                     <div class="row">
                         <div class="col-xs-2">
-                        <button onclick="location.href='schedule.html';">Schedule</a></button>
+                        <button onclick="location.href='schedule.php';">Schedule</a></button>
                         </div>
                     </div>
                     <!-- </div>
@@ -59,14 +59,14 @@
                     <div class="center">     -->
                     <div class="row">
                         <div class="col-xs-2">
-                        <button onclick="location.href='attendance.html';">Attendance</a></button>
+                        <button onclick="location.href='attendance.php';">Attendance</a></button>
                         </div>
                     </div>
                         <!-- </div>
                     <div class="center">     -->
                     <div class="row">
                         <div class="col-xs-2">
-                        <button onclick="location.href='settings.html';">Settings</a></button>
+                        <button onclick="location.href='settings.php';">Settings</a></button>
                         </div>
                     </div>
                     </div>

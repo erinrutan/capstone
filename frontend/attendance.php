@@ -33,7 +33,7 @@
 <body>  
     <div class="nav-bar"></div>
 
-    <div class="center"><h1>CNU Rowing Club - Roster</h1></div>
+    <div class="center"><h1>CNU Rowing Club - Attendance</h1></div>
 
     <div class="product">
         <div class="grid-container">
@@ -43,17 +43,12 @@
         </div>
     </div>
 
-    <div id="roster">
+    <div id="attendance">
         <div class="home-page">
-
-            <table>
+        <table>
             <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Side</th>
-            <th>Biography</th>
+            <th>Event Name</th>
+            <th>Attendees</th>
             </tr>
             <?php 
                     $servername = "localhost";
@@ -67,15 +62,15 @@
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    $sql = "SELECT membername, memberphoneno, memberemail, memberstatus, membersiderow, memberbio FROM member";
+                    $sql = "select m.memberid, m.membername, e.eventid, e.eventname, a.memberid, a.eventid 
+                            from member m, event e, attends a 
+                            where m.memberid = a.memberid && e.eventid = a.eventid;";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><td>" . $row["membername"]. "</td><td>" . $row["memberphoneno"] 
-                        . "</td><td>" . $row["memberemail"] . "</td><td>" . $row["memberstatus"] 
-                        . "</td><td>" . $row["membersiderow"] . "</td><td>" . $row["memberbio"] . "</td></tr>";
+                        echo "<tr><td>" . $row["e.eventname"]. "</td><td>" . $row["e.membername"] . "</td></tr>";
                     }
                     echo "</table>";
                     } else { echo "0 results"; }
@@ -85,5 +80,5 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="roster.js"></script> 
+    <script src="attendance.js"></script> 
 </body>

@@ -198,3 +198,25 @@ body {
     background-color:cornflowerblue;
   }
 
+
+  /***************************************/
+  /* Tables */
+  /***************************************/
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #002C76;
+    font-family:"Quicksand",sans-serif;
+    font-size: 20px;
+    text-align: left;
+    justify-content: center;
+    align-items:center;
+}
+th {
+    background-color: #1f78e4;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}

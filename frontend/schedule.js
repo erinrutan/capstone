@@ -40,8 +40,8 @@ const renderCalendar = () => {
 
     let days = "";
 
-    // previous days from last month (POTENTIALLY REMOVE -1 in FOR LOOP)
-    for(let x = firstDayIndex - 1; x > 0; x--) {
+    // previous days from last month (REMOVED -1 IN FOR LOOP)
+    for(let x = firstDayIndex; x > 0; x--) {
         days += `<div class="prev-date"> ${prevLastDay - x + 1}</div>`;
     }
 
