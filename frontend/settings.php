@@ -1,4 +1,5 @@
-<!doctype html>
+<!-- SETTINGS PAGE -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,7 +86,7 @@
 
     <div class="product">
         <div class="grid-container">
-            <back-button onclick="location.href='index.php';">
+            <back-button onclick="location.href='home.php';">
                 <back-img><img src="back_button.png" id="home" width="100" height="100" /></back-img></a>
             </back-button>
         </div>
@@ -130,4 +131,3 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="settings.js"></script> 
 </body>
-</html>

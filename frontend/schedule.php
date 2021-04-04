@@ -1,3 +1,4 @@
+<!-- SCHEDULE PAGE -->
 <!-- <?php
     include_once '/db.php';
 ?> -->
@@ -98,7 +99,7 @@
 
         <div class="product"> 
             <div class="grid-container">
-                <back-button onclick="location.href='index.php';">
+                <back-button onclick="location.href='home.php';">
                     <back-img><img src="back_button.png" id="home" width="100" height="100" /></back-img></a>
                 </back-button>
 
@@ -131,7 +132,7 @@
                         </form>
                     </div>
                 </div>
-    <           </div>
+               </div>
                 
             </div>
         </div>
@@ -164,6 +165,8 @@
     </div>
 
     <?php
+
+    echo password_hash("password");
     // Create connection
     $conn = mysqli_connect("localhost", "root", "root", "rowing");
 
