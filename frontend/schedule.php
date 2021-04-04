@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
     include_once '/db.php';
-?>
+?> -->
 
 <html lang="en">
 <head>
@@ -85,6 +85,9 @@
     </style>
 </head>
 <body>  
+
+    
+
     <div class="nav-bar"></div>
 
     <div class="center"><h1>CNU Rowing Club - Schedule</h1></div>
@@ -114,6 +117,18 @@
                         <p>Location: <input type="text" placeholder="Enter location"></p>
                         <p>Description: <input type="text" placeholder="Enter description"></p>
                         <button onclick="location.href='schedule.php';">Save</button>
+
+                        <form method="POST">
+                            Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required>
+                            <br/>
+                            Date : <input type="datetime" name="date" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required>
+                            <br/>
+                            Location : <input type="text" name="location" placeholder="Enter Location" Required>
+                            <br/>
+                            Description : <input type="text" name="description" placeholder="Enter Description">
+                            <br/>
+                            <input type="submit" name="submit" value="Submit">
+                        </form>
                     </div>
                 </div>
     <           </div>
@@ -147,6 +162,32 @@
             </div>
         </div>
     </div>
+
+    <?php
+    // Create connection
+    $conn = mysqli_connect("localhost", "root", "root", "rowing");
+
+    if(isset($_POST['submit']))
+    {		
+        $eventname = $_POST['eventname'];
+        $date = $_POST['date'];
+        $location = $_POST['location'];
+        $description = $_POST['description'];
+
+        $insert = mysqli_query($conn,"INSERT INTO `event`
+        VALUES (NULL,'$eventname','$date','$location','$description','1');");
+
+        if(!$insert)
+        {
+            echo mysqli_error();
+        }
+        else
+        {
+            echo "Records added successfully.";
+        }
+    }
+    mysqli_close($conn); // Close connection
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="schedule.js"></script> 

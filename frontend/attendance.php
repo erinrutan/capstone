@@ -47,8 +47,8 @@
         <div class="home-page">
         <table>
             <tr>
-            <th>Event Name</th>
-            <th>Attendees</th>
+            <th>Events Attended</th>
+            <th>Date</th>
             </tr>
             <?php 
                     $servername = "localhost";
@@ -62,15 +62,19 @@
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    $sql = "select m.memberid, m.membername, e.eventid, e.eventname, a.memberid, a.eventid 
-                            from member m, event e, attends a 
-                            where m.memberid = a.memberid && e.eventid = a.eventid;";
+                    // $sql = "select eventid from attends where memberid like '%1%'";
+                    $sql = "select a.eventid, a.memberid, e.eventid, e.eventname, e.eventdate
+                    from attends a, event e
+                    where a.eventid = e.eventid && a.memberid like '%1%';";
+                    // $sql = "select m.memberid, m.membername, e.eventid, e.eventname, a.memberid, a.eventid 
+                    //         from member m, event e, attends a 
+                    //         where m.memberid = a.memberid && e.eventid = a.eventid;";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><td>" . $row["e.eventname"]. "</td><td>" . $row["e.membername"] . "</td></tr>";
+                        echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["eventdate"]. "</td></tr>";
                     }
                     echo "</table>";
                     } else { echo "0 results"; }
