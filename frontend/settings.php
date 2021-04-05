@@ -12,12 +12,12 @@
             font-size: 1em;
             padding: 10px;
             color: #fff;
-            border: 2px solid #06D85F;
-            border-radius: 20px/50px;
+            border: 2px solid #1f78e4;
+            border-radius: 25px;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease-out;
-            background: #06D85F;
+            background: #1f78e4;
         }
         .overlay {
             position: fixed;
@@ -104,9 +104,9 @@
                 <p>Side Row: <input type="text" value="Side"></p>
                 <p>Password: <input type="text" value="Change [change this]"></p>
 
-                <button onclick="location.href='index.php';">Save</a></button>
+                <button onclick="location.href='home.php';">Save</a></button>
                 <p></p>
-                <button>Log Out</button>
+                <button onclick="location.href='index.php';">Log Out</button>
                 <p><br></p>
  
 

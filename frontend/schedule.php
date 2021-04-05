@@ -16,16 +16,16 @@
 
     <style>
         .buttonPop {
-            font-size: 1em;
+             font-size: 1em;
             padding: 10px;
             color: #fff;
-            border: 2px solid #06D85F;
-            border-radius: 20px/50px;
+            border: 2px solid #1f78e4;
+            border-radius: 25px;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease-out;
-            background: #06D85F;
-        }
+            background: #1f78e4;
+            }
         .overlay {
             position: fixed;
             top: 0;
@@ -106,6 +106,7 @@
                 <div class="center">
 
                     <a class="buttonPop" href="#popup1">+ Create Event</a>
+                    <p><br></p>
 
                 <div id="popup1" class="overlay">
 
@@ -113,22 +114,21 @@
                     <h2>New Event</h2>
                     <a class="close" href="#">&times;</a>
                     <div class="content">
-                        <p>Event Name: <input type="text" placeholder="Enter event name"></p>
+                        <!-- <p>Event Name: <input type="text" placeholder="Enter event name"></p>
                         <p>Date: <input type="text" placeholder="Enter date"></p>
                         <p>Location: <input type="text" placeholder="Enter location"></p>
                         <p>Description: <input type="text" placeholder="Enter description"></p>
-                        <button onclick="location.href='schedule.php';">Save</button>
+                        <button onclick="location.href='schedule.php';">Save</button> -->
 
                         <form method="POST">
-                            Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required>
-                            <br/>
-                            Date : <input type="datetime" name="date" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required>
-                            <br/>
-                            Location : <input type="text" name="location" placeholder="Enter Location" Required>
-                            <br/>
-                            Description : <input type="text" name="description" placeholder="Enter Description">
-                            <br/>
-                            <input type="submit" name="submit" value="Submit">
+                            <p>Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required></p>
+                            <p>Date : <input type="datetime" name="date" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required></p>
+                            <p>Location : <input type="text" name="location" placeholder="Enter Location" Required></p>
+                            <p> Description : <input type="text" name="description" placeholder="Enter Description"></p>
+                            
+                            <!-- Note: May have to change back to input type rather than button? -->
+                            <!-- <input type="submit" name="submit" value="Submit"> -->
+                            <button type="submit" name="submit" onclick="location.href='schedule.php';">Save</button>
                         </form>
                     </div>
                 </div>

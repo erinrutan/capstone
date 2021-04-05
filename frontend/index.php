@@ -37,6 +37,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CNU Rowing Club</title>
     <!-- For Button PopUp -->
     <style>
         .buttonPop {
@@ -110,50 +111,21 @@
 </head>
 <body>
 
-<div class="center">
-<button onclick="location.href='home.php';">Bypass</a></button>
-<br/>
-<a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
+<div class='grid-container'>
 
-<div id="popup1" class="overlay">
-
-<div class="popup">
-<h2>New Event</h2>
-<a class="close" href="#">&times;</a>
-<div class="content">
+<div class="product-image">
+  <img src="logo.jpg" alt="Rowing Club Logo">
+</div>
 
 
-  <form method="POST">
-    Name         : <input type="text" name="membername" placeholder="Enter Name" Required>
-    <br/>
-    Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required>
-    <br/>
-    Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required>
-    <br/>
-    Status       : <input type="text" name="memberstatus" placeholder="Enter Postiion [[CHANGE TO BUTTONS]]">
-    <br/>
-    Side         : <input type="text" name="membersiderow" placeholder="Enter Side Rowed" Required>
-    <br/>
-    Bio          : <input type="text" name="memberbio" placeholder="Enter Bio" >
-    <br/>
-    <input type="submit" name="submit" value="Save">
-  </form>
-  </div>
-                </div>
-    <           </div>
-                
-            </div>
-        </div>
-        <p><br></p>
-
-
-    <!-- Background image -->
+    <!-- Background image
     <div id="intro" class="bg-image shadow-2-strong">
       <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-xl-5 col-md-8">
-              <form class="bg-white rounded shadow-5-strong p-5">
+            <div class="col-xl-5 col-md-8"> -->
+              <div class="center">
+              <form class="bg-white rounded shadow-5-strong p-5"> 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <input type="email" id="form1Example1" class="form-control" />
@@ -171,11 +143,46 @@
                 <!-- Sign in button -->
                 <button type="submit" class="btn btn-primary btn-block" onclick="location.href='home.php';">Sign in</button>
               </form>
-            </div>
+              </div>
+            <!-- </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Background image -->
+
+<div class="center">
+  <button onclick="location.href='home.php';">Bypass</a></button>
+  <p><br></p>
+  <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>New Event</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+        <form method="POST">
+          Name         : <input type="text" name="membername" placeholder="Enter Name" Required>
+          <br/>
+          Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required>
+          <br/>
+          Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required>
+          <br/>
+          Status       : <input type="text" name="memberstatus" placeholder="Enter Postiion [[CHANGE TO BUTTONS]]">
+          <br/>
+          Side         : <input type="text" name="membersiderow" placeholder="Enter Side Rowed" Required>
+          <br/>
+          Bio          : <input type="text" name="memberbio" placeholder="Enter Bio" >
+          <br/>
+          <input type="submit" name="submit" value="Save">
+        </form>
+      </div>
+    </div>
+  </div>
+                
+</div>
+</div>
+<!-- grid container -->
+</div>
 
 </body>
