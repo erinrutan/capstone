@@ -3,6 +3,32 @@
     include_once '/db.php';
 ?> -->
 
+<?php
+    // Create connection
+    $conn = mysqli_connect("localhost", "root", "root", "rowing");
+
+    if(isset($_POST['submit']))
+    {		
+        $eventname = $_POST['eventname'];
+        $eventdate = $_POST['eventdate'];
+        $eventlocation = $_POST['eventlocation'];
+        $eventdescription = $_POST['eventdescription'];
+
+        $insert = mysqli_query($conn,"INSERT INTO `event`
+        VALUES (NULL,'$eventname','$eventdate','$eventlocation','$eventdescription','1');");
+
+        if(!$insert)
+        {
+            echo mysqli_error();
+        }
+        else
+        {
+            echo "New event created.";
+        }
+    }
+    mysqli_close($conn); // Close connection
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,18 +111,11 @@
         }
     </style>
 </head>
-<body>  
-
-    
-
+<body> 
     <div class="nav-bar"></div>
-
-    <div class="center"><h1>CNU Rowing Club - Schedule</h1></div>
-
-    
+    <div class="center"><h1>CNU Rowing Club - Schedule</h1></div>    
 
     <div class="schedule">
-
         <div class="product"> 
             <div class="grid-container">
                 <back-button onclick="location.href='home.php';">
@@ -121,14 +140,18 @@
                         <button onclick="location.href='schedule.php';">Save</button> -->
 
                         <form method="POST">
-                            <p>Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required></p>
-                            <p>Date : <input type="datetime" name="date" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required></p>
-                            <p>Location : <input type="text" name="location" placeholder="Enter Location" Required></p>
-                            <p> Description : <input type="text" name="description" placeholder="Enter Description"></p>
+                            Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                            <br/>
+                            Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                            <br/>
+                            Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                            <br/>
+                            Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                             
                             <!-- Note: May have to change back to input type rather than button? -->
                             <!-- <input type="submit" name="submit" value="Submit"> -->
-                            <button type="submit" name="submit" onclick="location.href='schedule.php';">Save</button>
+                            <input type="submit" name="submit" value="Save">
+                            <!-- <button type="submit" name="submit" onclick="location.href='schedule.php';">Save</button> -->
                         </form>
                     </div>
                 </div>
@@ -163,34 +186,6 @@
             </div>
         </div>
     </div>
-
-    <?php
-
-    echo password_hash("password");
-    // Create connection
-    $conn = mysqli_connect("localhost", "root", "root", "rowing");
-
-    if(isset($_POST['submit']))
-    {		
-        $eventname = $_POST['eventname'];
-        $date = $_POST['date'];
-        $location = $_POST['location'];
-        $description = $_POST['description'];
-
-        $insert = mysqli_query($conn,"INSERT INTO `event`
-        VALUES (NULL,'$eventname','$date','$location','$description','1');");
-
-        if(!$insert)
-        {
-            echo mysqli_error();
-        }
-        else
-        {
-            echo "Records added successfully.";
-        }
-    }
-    mysqli_close($conn); // Close connection
-    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="schedule.js"></script> 
