@@ -1,4 +1,59 @@
 <!-- SETTINGS PAGE -->
+<?php
+    session_start();
+    $user = $_SESSION['user'];
+    echo $user;
+
+    $conn = mysqli_connect("localhost", "root", "root", "rowing");
+
+    if(isset($_POST['save'])) {		
+
+        $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
+        $membername = $getuser["membername"];
+        echo $membername;
+
+        $membername = $_POST['membername'];
+        $memberphoneno = $_POST['memberphoneno'];
+        $memberemail = $_POST['memberemail'];
+        $memberstatus = $_POST['memberstatus'];
+        $membersiderow = $_POST['membersiderow'];
+        $memberbio = $_POST['memberbio'];
+        $memberpassword = $_POST['memberpassword'];
+        $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
+
+        // $update = mysqli_query($conn,"UPDATE `member`
+        // SET membername = '$membername', memberphoneno = '$memberphoneno', memberemail = '$memberemail',
+        // memberstatus = '$memberstatus', membersiderow = '$membersiderow', memberbio = '$memberbio', memberpassword = '$hash'
+        // WHERE memberid = $_SESSION['user'];");
+
+        // if(!$update) {
+        //     echo mysqli_error();
+        // } else {
+        //     echo "Successfully Updated";
+        // }
+    }
+
+    if(isset($_POST['logout'])) {		
+        $_SESSION['user'] = NULL;
+        redirect('index.php');
+    }
+
+    if(isset($_POST['deleteAccount'])) {
+        // $delete = mysqli_query($conn, "DELETE FROM member WHERE memberid = $_SESSION['user']");
+        $_SESSION['user'] = NULL;
+        redirect('index.php');
+    }
+
+    function redirect($url) {
+      ob_start();
+      header('Location: '.$url);
+      ob_end_flush();
+      die();
+    }
+
+    mysqli_close($conn); // Close connection
+
+?>
 
 <html lang="en">
 <head>
@@ -96,35 +151,43 @@
         <div class="home-page">
 
             <div class="center">
-
-                <p>Name: <input type="text" value="Name"></p>
-                <p>Phone Number: <input type="text" value="Phone Number"></p>
-                <p>Email: <input type="text" value="Email"></p>
-                <p>Status: <input type="text" value="Status"></p>
-                <p>Side Row: <input type="text" value="Side"></p>
-                <p>Password: <input type="text" value="Change [change this]"></p>
-
-                <button onclick="location.href='home.php';">Save</a></button>
+            <form method="POST">
+                Name: <input type="text" value=<?php echo $membername;?>>
+                <br/>
+                Phone Number: <input type="text" value="Phone Number">
+                <br/>
+                Email: <input type="text" value="Email">
+                <br/>
+                Status: <input type="text" value="Status">
+                <br/>
+                Side Row: <input type="text" value="Side">
+                <br/>
+                Password: <input type="text" value="Change [change this]">
+                <br/>
+                <button type="submit" name="save">Save</a></button>
                 <p></p>
-                <button onclick="location.href='index.php';">Log Out</button>
-                <p><br></p>
- 
-
-
-                <div class="box">
+            </form>
+            <form method="POST">
+                <button type="submit" name="logout">Log Out</button>
+                <br/>
+            </form>
+            <div class="box">
                     <a class="buttonPop" href="#popup1">Delete Account</a>
                 </div>
                 <div id="popup1" class="overlay">
 
-                <div class="popup">
-                    <h2>Are you sure you want to delete your account?</h2>
-                    <a class="close" href="#">&times;</a>
-                    <div class="content">
-                        <button>Yes</button>
-                        <button onclick="location.href='settings.php';">No</button>
-                    </div>
+                    <div class="popup">
+                        <h2>Are you sure you want to delete your account?</h2>
+                        <a class="close" href="#">&times;</a>
+                        <div class="content">
+                        <form method="POST">
+                            <button type="submit" name="deleteAccount">Yes</button>
+                        </form>
+                            <button onclick="location.href='settings.php';">No</button>
+                        </div>
+                    </div>  
                 </div>
-
+            </div>
         </div>
     </div>
 

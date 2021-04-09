@@ -1,6 +1,8 @@
 <!-- ATTENDANCE PAGE -->
 <?php
     include_once '/db.php';
+    session_start();
+    echo $_SESSION['user'];
 ?>
 
 <html lang="en">
@@ -63,13 +65,14 @@
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-                    // $sql = "select eventid from attends where memberid like '%1%'";
-                    $sql = "select a.eventid, a.memberid, e.eventid, e.eventname, e.eventdate
-                    from attends a, event e
-                    where a.eventid = e.eventid && a.memberid like '%1%';";
-                    // $sql = "select m.memberid, m.membername, e.eventid, e.eventname, a.memberid, a.eventid 
-                    //         from member m, event e, attends a 
-                    //         where m.memberid = a.memberid && e.eventid = a.eventid;";
+
+                    $user = $_SESSION['user'];
+                    $sql = "select a.eventid, a.memberid, e.eventid, e.eventname, e.eventdate, m.memberid
+                    from attends a, event e, member m
+                    where a.eventid = e.eventid AND
+                          a.memberid = m.memberid AND
+                          m.memberid = $user;";
+ 
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {

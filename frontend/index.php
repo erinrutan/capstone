@@ -1,5 +1,7 @@
 <!-- LOGIN PAGE -->
 <?php
+  session_start();
+  echo $_SESSION['user'];
     // $hash = password_hash($givenPassword, PASSWORD_DEFAULT);
     // $verify = password_verify($inputPassword, $hash);
 
@@ -25,8 +27,36 @@
         } else {
             echo "Account created";
         }
-        // addAccount($membername, $memberphoneno, $memberemail, $memberstatus, $membersiderow, $memberbio, $memberpassword);
     }
+
+    if(isset($_POST['login']))
+    {		
+      $inputpassword = $_POST['inputpassword'];
+      $inputemail = $_POST['inputemail'];
+
+      $getdbPassword = mysqli_fetch_assoc(mysqli_query($conn, "SELECT memberpassword FROM member WHERE memberemail = '$inputemail';"));
+      $dbPassword = $getdbPassword["memberpassword"];
+
+      $getuserid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT memberid FROM member WHERE memberemail = '$inputemail';"));
+      $userid = $getuserid["memberid"];
+      // [[ CAN CHECK HERE IF ACCOUNT EXISTS, IF NO USER ID NO ACCOUNT ]]
+       
+      if (password_verify($inputpassword, $dbPassword)) {
+        $_SESSION['user'] = $userid;
+        echo "SUCCESS, PASSWORDS MATCH. ACCOUNT VALID";
+        redirect("home.php");
+      } else {
+        echo "INCORRECT EMAIL OR PASSWORD";
+      }
+    }
+
+    function redirect($url) {
+      ob_start();
+      header('Location: '.$url);
+      ob_end_flush();
+      die();
+  }
+
     mysqli_close($conn); // Close connection
 ?>
 
@@ -114,40 +144,13 @@
 </div>
 
   <div class="center">
+  <form method="POST">
     Email    : <input type="text" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
     <br/>
     Password : <input type="varchar(225)" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
     <br/>          
-    
-    <!-- Sign in button -->
-    <!-- login($inputemail, $inputpassword) -->
-    <button type="submit" class="btn btn-primary btn-block" onclick="login()">Sign in</button>
-
-    <script>
-    function login() {
-   
-      console.log("FUNCTION CALLED!");
-    }
-    </script>
-          
-    <!-- <script>
-      function login() {
-        <?php
-          // $conn = mysqli_connect("localhost", "root", "root", "rowing");
-          // $getdbPassword = mysqli_query($conn, 'SELECT memberpassword FROM member WHERE (memberemail = $inputemail)');
-          // echo $getdbPassword;
-          // $getuserid = mysqli_query($conn, 'SELECT memberid FROM member WHERE (memberemail = $inputemail)');
-          // echo $getuserid;
-          // if (password_verify($inputpassword, $getdbPassword)) {
-            //global user ID = $getuserid;
-            //register session (???)
-          //   echo 'SUCCESS';
-          //   return TRUE;
-          // }
-          // mysqli_close($conn);
-        ?>
-      }
-    </script> -->
+    <button type="submit" name="login">Sign in</button>
+  </form>
   </div>
 
 <div class="center">
