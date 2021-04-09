@@ -1,31 +1,10 @@
 <!-- LOGIN PAGE -->
 <?php
-    // $hash = password_hash("password", PASSWORD_DEFAULT);
-    // $password = "password";
-    // echo $hash;
-    // $verify = password_verify($password, $hash);
-    // echo "";
-    // echo $verify;
-
+    // $hash = password_hash($givenPassword, PASSWORD_DEFAULT);
+    // $verify = password_verify($inputPassword, $hash);
 
     // Create connection
     $conn = mysqli_connect("localhost", "root", "root", "rowing");
-
-    // /* A sanitization check for the account password */
-    // public function isPasswdValid(string $memberpassword): bool
-    // {
-    //   /* Initialize the return variable */
-    //   $valid = TRUE;
-      
-    //   /* Example check: the length must be between 8 and 16 chars */
-    //   $len = mb_strlen($passwd);
-    //   if (($len < 8) || ($len > 16))
-    //   { $valid = FALSE; }
-      
-    //   /* add more checks here */
-      
-    //   return $valid;
-    // }
 
     if(isset($_POST['submit']))
     {		
@@ -35,24 +14,18 @@
         $memberstatus = $_POST['memberstatus'];
         $membersiderow = $_POST['membersiderow'];
         $memberbio = $_POST['memberbio'];
-        $hash = password_hash('memberpassword',PASSWORD_DEFAULT);
-        $memberpassword = $_POST[$hash];
-        // $memberpassword = $_POST['memberpassword'];
-
-        // [[ CHECK THAT PASSWORD IS VALID ]]
-        // [[ CHECK INPUTS / SANITIZE AGAINST SQL ATTACKS ]]
+        $memberpassword = $_POST['memberpassword'];
+        $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
 
         $insert = mysqli_query($conn,"INSERT INTO `member`
-        VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$memberbio','$memberpassword');");
+        VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$memberbio','$hash');");
 
-        if(!$insert)
-        {
+        if(!$insert) {
             echo mysqli_error();
-        }
-        else
-        {
+        } else {
             echo "Account created";
         }
+        // addAccount($membername, $memberphoneno, $memberemail, $memberstatus, $membersiderow, $memberbio, $memberpassword);
     }
     mysqli_close($conn); // Close connection
 ?>
@@ -136,43 +109,46 @@
 <body>
 
 <div class='grid-container'>
-
 <div class="product-image">
   <img src="logo.jpg" alt="Rowing Club Logo">
 </div>
 
-    <!-- Background image
-    <div id="intro" class="bg-image shadow-2-strong">
-      <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xl-5 col-md-8"> -->
-              <div class="center">
-              <form class="bg-white rounded shadow-5-strong p-5"> 
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form1Example1" class="form-control" />
-                  <label class="form-label" for="form1Example1">Email address</label>
-                </div>
+  <div class="center">
+    Email    : <input type="text" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
+    <br/>
+    Password : <input type="varchar(225)" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
+    <br/>          
+    
+    <!-- Sign in button -->
+    <!-- login($inputemail, $inputpassword) -->
+    <button type="submit" class="btn btn-primary btn-block" onclick="login()">Sign in</button>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form1Example2" class="form-control" />
-                  <label class="form-label" for="form1Example2">Password</label>
-                </div>
-
-              
-
-                <!-- Sign in button -->
-                <button type="submit" class="btn btn-primary btn-block" onclick="location.href='home.php';">Sign in</button>
-              </form>
-              </div>
-            <!-- </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- Background image -->
+    <script>
+    function login() {
+   
+      console.log("FUNCTION CALLED!");
+    }
+    </script>
+          
+    <!-- <script>
+      function login() {
+        <?php
+          // $conn = mysqli_connect("localhost", "root", "root", "rowing");
+          // $getdbPassword = mysqli_query($conn, 'SELECT memberpassword FROM member WHERE (memberemail = $inputemail)');
+          // echo $getdbPassword;
+          // $getuserid = mysqli_query($conn, 'SELECT memberid FROM member WHERE (memberemail = $inputemail)');
+          // echo $getuserid;
+          // if (password_verify($inputpassword, $getdbPassword)) {
+            //global user ID = $getuserid;
+            //register session (???)
+          //   echo 'SUCCESS';
+          //   return TRUE;
+          // }
+          // mysqli_close($conn);
+        ?>
+      }
+    </script> -->
+  </div>
 
 <div class="center">
   <button onclick="location.href='home.php';">Bypass</a></button>
@@ -193,16 +169,16 @@
           <br/>
           Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
           <br/>
-          Status       : <!-- <input type="text" name="memberstatus" placeholder="Enter Postiion [[CHANGE TO BUTTONS]]"> -->
+          Status :
             <input type="radio" name="memberstatus"
             <?php if (isset($status) && $status=="e-board") echo "checked";?>
             value="e-board">E-board
-            <input type="radio" name="memberstatus"
+            <input type="radio" name="memberstatus" Required
             <?php if (isset($status) && $status=="member") echo "checked";?>
             value="member">Member
           <br/>
-          Side         : <!--<input type="text" name="membersiderow" placeholder="Enter Side Rowed" Required> -->
-            <input type="radio" name="membersiderow"
+          Side   : 
+            <input type="radio" name="membersiderow" 
             <?php if (isset($siderow) && $siderow=="port") echo "checked";?>
             value="port">Port
             <input type="radio" name="membersiderow"
@@ -212,7 +188,7 @@
             <?php if (isset($siderow) && $siderow=="coxswain") echo "checked";?>
             value="coxswain">Coxswain
           <br/>
-          Bio          : <input type="textarea" name="memberbio" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+          Bio    : <input type="textarea" name="memberbio" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
           <br/>
           <input type="submit" name="submit" value="Save">
         </form>
@@ -222,7 +198,6 @@
                 
 </div>
 </div>
-<!-- grid container -->
 </div>
 
 </body>

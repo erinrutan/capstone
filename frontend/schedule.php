@@ -15,7 +15,7 @@
         $eventdescription = $_POST['eventdescription'];
 
         $insert = mysqli_query($conn,"INSERT INTO `event`
-        VALUES (NULL,'$eventname','$eventdate','$eventlocation','$eventdescription','1');");
+        VALUES (NULL,'$eventname','$eventlocation','$eventdate','$eventdescription','1');");
 
         if(!$insert)
         {
@@ -23,7 +23,7 @@
         }
         else
         {
-            echo "New event created.";
+            echo "New event created!";
         }
     }
     mysqli_close($conn); // Close connection
@@ -123,22 +123,13 @@
                 </back-button>
 
                 <div class="center">
-
                     <a class="buttonPop" href="#popup1">+ Create Event</a>
                     <p><br></p>
-
                 <div id="popup1" class="overlay">
-
                 <div class="popup">
                     <h2>New Event</h2>
                     <a class="close" href="#">&times;</a>
                     <div class="content">
-                        <!-- <p>Event Name: <input type="text" placeholder="Enter event name"></p>
-                        <p>Date: <input type="text" placeholder="Enter date"></p>
-                        <p>Location: <input type="text" placeholder="Enter location"></p>
-                        <p>Description: <input type="text" placeholder="Enter description"></p>
-                        <button onclick="location.href='schedule.php';">Save</button> -->
-
                         <form method="POST">
                             Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
                             <br/>
@@ -148,10 +139,7 @@
                             <br/>
                             Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                             
-                            <!-- Note: May have to change back to input type rather than button? -->
-                            <!-- <input type="submit" name="submit" value="Submit"> -->
                             <input type="submit" name="submit" value="Save">
-                            <!-- <button type="submit" name="submit" onclick="location.href='schedule.php';">Save</button> -->
                         </form>
                     </div>
                 </div>
