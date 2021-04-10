@@ -2,13 +2,13 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    echo $user;
+    // echo $user;
 
-    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Connect to DB
+    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $memberstatus = $getuser["memberstatus"];
-    echo $memberstatus;
+    // echo $memberstatus;
 
     mysqli_close($conn); // Close connection
 ?>
@@ -43,7 +43,6 @@
 </head>
 <body>  
     <div class="nav-bar"></div>
-
     <div class="center"><h1>CNU Rowing Club - Attendance</h1></div>
 
     <div class="product">
@@ -56,79 +55,71 @@
 
     <div id="attendance">
         <div class="home-page">
-        <table>
-            <tr>
-            <th>Events you have attended</th>
-            <th>Date</th>
-            </tr>
-            <?php 
-                    $servername = "localhost";
-                    $database = "rowing";
-                    $username = "root";
-                    $password = "root";
-                    
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $database);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+            <table>
+                <tr>
+                <th>Events you have attended</th>
+                <th>Date</th>
+                </tr>
+                <?php 
+                        $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
 
-                    $sql = "select a.eventid, a.memberid, e.eventid, e.eventname, e.eventdate, m.memberid
-                    from attends a, event e, member m
-                    where a.eventid = e.eventid AND
-                          a.memberid = m.memberid AND
-                          m.memberid = $user;";
- 
-                    $result = $conn->query($sql);
+                        $sql = 
+                            "select a.eventid, a.memberid, e.eventid, e.eventname, e.eventdate, m.memberid
+                            from attends a, event e, member m
+                            where a.eventid = e.eventid AND
+                            a.memberid = m.memberid AND
+                            m.memberid = $user;";
+    
+                        $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["eventdate"]. "</td></tr>";
-                    }
-                    echo "</table>";
-                    } else { echo "0 results"; }
-                    $conn->close();
-                    ?>
-        </table>
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["eventdate"]. "</td></tr>";
+                        }
+                        echo "</table>";
+                        } else { echo "0 results"; }
+                        $conn->close();
+                        ?>
+            </table>
 
+            <div id="attendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+                <div class="center">
+                    <h1> Team Attendance </h1>
+                </div>
+            
+                <table>
+                    <tr>
+                        <th>Events</th>
+                        <th>Date</th>
+                        <th>Members in Attendance</th>
+                    </tr>
+                    <?php 
+                        $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
 
+                        $sql = 
+                            "select a.eventname, eventdate, membername 
+                            from attends a, event e
+                            where a.eventid = e.eventid
+                            order by eventdate;";
         
-        <div id="attendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
-            <div class="center">
-            <h1> Team Attendance </h1>
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["eventname"]. 
+                                 "</td><td>" . $row["eventdate"]. 
+                                 "</td><td>" . $row["membername"]. 
+                                 "</td></tr>";
+                        }
+                        echo "</table>";
+                        } else { echo "0 results"; }
+                        $conn->close();
+                        ?>
+                </table>
             </div>
-        
-
-        <table>
-            <tr>
-            <th>Events</th>
-            <th>Date</th>
-            <th>Members in Attendance</th>
-            </tr>
-            <?php 
-                $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
-
-                $sql = "select a.eventname, eventdate, membername 
-                from attends a, event e
-                where a.eventid = e.eventid
-                order by eventdate;";
- 
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["eventdate"]. "</td><td>" . $row["membername"]. "</td></tr>";
-                }
-                echo "</table>";
-                } else { echo "0 results"; }
-                $conn->close();
-                ?>
-        </table>
         </div>
-    </div>
     </div>
 
 

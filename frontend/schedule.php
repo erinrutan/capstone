@@ -9,13 +9,6 @@
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $memberstatus = $getuser["memberstatus"];
     // echo $memberstatus;
- 
-    mysqli_close($conn); // Close connection
-?>
-
-<?php
-    // Create connection
-    $conn = mysqli_connect("localhost", "root", "root", "rowing");
 
     if(isset($_POST['submit']))
     {		
@@ -27,12 +20,9 @@
         $insert = mysqli_query($conn,"INSERT INTO `event`
         VALUES (NULL,'$eventname','$eventlocation','$eventdate','$eventdescription','1');");
 
-        if(!$insert)
-        {
+        if(!$insert){
             echo mysqli_error();
-        }
-        else
-        {
+        } else {
             echo "New event created!";
         }
     }
@@ -49,7 +39,7 @@
 
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <!-- For Button PopUp -->
     <style>
         .buttonPop {
              font-size: 1em;
@@ -134,57 +124,55 @@
 
                 <div class="center">
                 <div id="createEventEboard" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
-                <a class="buttonPop" href="#popup1">+ Create Event</a>
-                <p><br></p>
-                <div id="popup1" class="overlay">
-                <div class="popup">
-                    <h2>New Event</h2>
-                    <a class="close" href="#">&times;</a>
-                    <div class="content">
-                        <form method="POST">
-                            Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
-                            <br/>
-                            Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
-                            <br/>
-                            Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
-                            <br/>
-                            Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
-                            
-                            <input type="submit" name="submit" value="Save">
-                        </form>
+                    <a class="buttonPop" href="#popup1">+ Create Event</a>
+                    <p><br></p>
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <h2>New Event</h2>
+                            <a class="close" href="#">&times;</a>
+                            <div class="content">
+                                <form method="POST">
+                                Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                <br/>
+                                Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                <br/>
+                                Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                <br/>
+                                Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                <input type="submit" name="submit" value="Save">
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-               </div>
-               </div>
+                </div>
             </div>
-        </div>
-        <p><br></p>
+            <p><br></p>
         
-        <div class="container">
-
-            <!-- Calendar! -->
-            <div class="calendar">
-                <div class="month">
-                    <i class="fas fa-angle-left prev"></i>
-                    <div class="date">
-                        <h1></h1>
-                        <p></p>
+            <div class="container">
+                <!-- Calendar! -->
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fas fa-angle-left prev"></i>
+                        <div class="date">
+                            <h1></h1>
+                            <p></p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
                     </div>
-                    <i class="fas fa-angle-right next"></i>
+                    <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="days"></div>
                 </div>
-                <div class="weekdays">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div class="days"></div>
             </div>
         </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="schedule.js"></script> 

@@ -5,8 +5,7 @@
     // $hash = password_hash($givenPassword, PASSWORD_DEFAULT);
     // $verify = password_verify($inputPassword, $hash);
 
-    // Create connection
-    $conn = mysqli_connect("localhost", "root", "root", "rowing");
+    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
 
     if(isset($_POST['submit']))
     {		
@@ -137,70 +136,61 @@
     </style>
 </head>
 <body>
+  <div class='grid-container'>
+    <div class="product-image">
+      <img src="logo.jpg" alt="Rowing Club Logo">
+    </div>
 
-<div class='grid-container'>
-<div class="product-image">
-  <img src="logo.jpg" alt="Rowing Club Logo">
-</div>
+    <div class="center">
+      <form method="POST">
+        Email    : <input type="text" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
+        <br/>
+        Password : <input type="varchar(225)" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
+        <br/>          
+        <button type="submit" name="login">Sign in</button>
+      </form>
+    </div>
 
-  <div class="center">
-  <form method="POST">
-    Email    : <input type="text" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
-    <br/>
-    Password : <input type="varchar(225)" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
-    <br/>          
-    <button type="submit" name="login">Sign in</button>
-  </form>
-  </div>
+    <div class="center">
+      <!-- <button onclick="location.href='home.php';">Bypass</a></button> -->
+      <br/>
+      <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
 
-<div class="center">
-  <!-- <button onclick="location.href='home.php';">Bypass</a></button> -->
-  <p><br></p>
-  <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
-
-  <div id="popup1" class="overlay">
-    <div class="popup">
-      <h2>Create Account</h2>
-      <a class="close" href="#">&times;</a>
-      <div class="content">
-        <form method="POST">
-          Name         : <input type="text" name="membername" placeholder="Enter Name" Required value="<?php echo $membername;?>">
-          <br/>
-          Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
-          <br/>
-          Password     : <input type="varchar(225)" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
-          <br/>
-          Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
-          <br/>
-          Status :
-            <input type="radio" name="memberstatus"
-            <?php if (isset($status) && $status=="e-board") echo "checked";?>
-            value="e-board">E-board
-            <input type="radio" name="memberstatus" Required
-            <?php if (isset($status) && $status=="member") echo "checked";?>
-            value="member">Member
-          <br/>
-          Side   : 
-            <input type="radio" name="membersiderow" 
-            <?php if (isset($siderow) && $siderow=="port") echo "checked";?>
-            value="port">Port
-            <input type="radio" name="membersiderow"
-            <?php if (isset($siderow) && $siderow=="starboard") echo "checked";?>
-            value="starboard">Starboard
-            <input type="radio" name="membersiderow"
-            <?php if (isset($siderow) && $siderow=="coxswain") echo "checked";?>
-            value="coxswain">Coxswain
-          <br/>
-          Bio    : <input type="textarea" name="memberbio" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
-          <br/>
-          <input type="submit" name="submit" value="Save">
-        </form>
-      </div>
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <h2>Create Account</h2>
+          <a class="close" href="#">&times;</a>
+          <div class="content">
+            <form method="POST">
+              Name         : <input type="text" name="membername" placeholder="Enter Name" Required value="<?php echo $membername;?>">
+              <br/>
+              Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
+              <br/>
+              Password     : <input type="varchar(225)" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
+              <br/>
+              Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
+              <br/>
+              Status :
+                <input type="radio" name="memberstatus" <?php if (isset($status) && $status=="e-board") 
+                  echo "checked";?> value="e-board">E-board
+                <input type="radio" name="memberstatus" Required <?php if (isset($status) && $status=="member") 
+                  echo "checked";?> value="member">Member
+              <br/>
+              Side   : 
+                <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="port") 
+                  echo "checked";?> value="port">Port
+                <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="starboard") 
+                  echo "checked";?> value="starboard">Starboard
+                <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="coxswain") 
+                  echo "checked";?> value="coxswain">Coxswain
+              <br/>
+              Bio    : <input type="textarea" name="memberbio" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+              <br/>
+              <input type="submit" name="submit" value="Save">
+            </form>
+          </div>
+        </div>
+      </div>             
     </div>
   </div>
-                
-</div>
-</div>
-</div>
-
 </body>

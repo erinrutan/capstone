@@ -33,7 +33,6 @@
 </head>
 <body>  
     <div class="nav-bar"></div>
-
     <div class="center"><h1>CNU Rowing Club - Roster</h1></div>
 
     <div class="product">
@@ -46,28 +45,18 @@
 
     <div id="roster">
         <div class="home-page">
-
             <table>
-            <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Side</th>
-            <th>Biography</th>
-            </tr>
-            <?php 
-                    $servername = "localhost";
-                    $database = "rowing";
-                    $username = "root";
-                    $password = "root";
-                    
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $database);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Side</th>
+                    <th>Biography</th>
+                </tr>
+                <?php 
+                    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+
                     $sql = "SELECT membername, memberphoneno, memberemail, memberstatus, membersiderow, memberbio FROM member";
                     $result = $conn->query($sql);
 
@@ -81,7 +70,8 @@
                     echo "</table>";
                     } else { echo "0 results"; }
                     $conn->close();
-                    ?>
+                ?>
+            </table>
         </div>
     </div>
 

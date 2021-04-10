@@ -2,12 +2,11 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    echo $user;
+    // echo $user;
 
-    $conn = mysqli_connect("localhost", "root", "root", "rowing");
+    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
-
     $membername = $getuser["membername"];
     $memberphoneno = $getuser["memberphoneno"];
     $memberemail = $getuser["memberemail"];
@@ -66,7 +65,6 @@
     }
 
     mysqli_close($conn); // Close connection
-
 ?>
 
 <html lang="en">
@@ -150,7 +148,6 @@
 </head>
 <body>  
     <div class="nav-bar"></div>
-
     <div class="center"><h1>CNU Rowing Club - Settings</h1></div>
 
     <div class="product">
@@ -163,50 +160,39 @@
 
     <div id="settings">
         <div class="home-page">
-
             <div class="center">
-            <form method="POST">
-                Name: <input type="text" name="membername" value=<?php echo $membername;?>>
-                <br/>
-                Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
-                <br/>
-                Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
-                <br/>
-                <!-- Status: <input type="text" name="memberstatus" value=<?php echo $memberstatus;?>>
-                <br/>
-                Side Row: <input type="text" name="membersiderow" value=<?php echo $membersiderow;?>>
-                <br/> -->
-                Status :
-                    <input type="radio" name="memberstatus" 
-                    <?php if ($memberstatus == "e-board") echo "checked";?> 
-                    
-                    value="e-board">E-board
-                    <input type="radio" name="memberstatus" Required
-                    <?php if ($memberstatus == "member") echo "checked";?>
-                    value="member">Member
-                <br/>
-                <!-- isset($status) && $status=="e-board" -->
-                Side   : 
-                    <input type="radio" name="membersiderow" 
-                    <?php if ($membersiderow == "port") echo "checked";?>
-                    value="port">Port
-                    <input type="radio" name="membersiderow"
-                    <?php if ($membersiderow == "starboard") echo "checked";?>
-                    value="starboard">Starboard
-                    <input type="radio" name="membersiderow"
-                    <?php if ($membersiderow == "coxswain") echo "checked";?>
-                    value="coxswain">Coxswain
-                <br/>
-                <!-- Password: <input type="text" value="Change [change this]">
-                <br/> -->
-                <br/>
-                <!-- <input type="submit" name="save" value="Save"> Save</a></button> -->
-                <div class="box">
-                <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
+                <form method="POST">
+                    Name: <input type="text" name="membername" value=<?php echo $membername;?>>
+                    <br/>
+                    Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
+                    <br/>
+                    Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
+                    <br/>
+                    Status :
+                        <input type="radio" name="memberstatus" 
+                        <?php if ($memberstatus == "e-board") echo "checked";?> 
+                        
+                        value="e-board">E-board
+                        <input type="radio" name="memberstatus" Required
+                        <?php if ($memberstatus == "member") echo "checked";?>
+                        value="member">Member
+                    <br/>
+                    Side   : 
+                        <input type="radio" name="membersiderow" 
+                        <?php if ($membersiderow == "port") echo "checked";?>
+                        value="port">Port
+                        <input type="radio" name="membersiderow"
+                        <?php if ($membersiderow == "starboard") echo "checked";?>
+                        value="starboard">Starboard
+                        <input type="radio" name="membersiderow"
+                        <?php if ($membersiderow == "coxswain") echo "checked";?>
+                        value="coxswain">Coxswain
+                    <br/><br/>
+                    <div class="box">
+                    <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
+                </form>
             </div>
-            </form>
             <br/>
-            
             <div class="box">
                 <a class="buttonPop" href="#popup1">Change password</a>
             </div>
@@ -222,10 +208,7 @@
                     </div>
                 </div>  
             </div>
-
-            <br/>
-            <br/>
-
+            <br/><br/>
             <div class="box">
                 <a class="buttonPop" href="#popup2">Log Out</a>
             </div>
@@ -242,10 +225,7 @@
                     </div>
                 </div>  
             </div>
-
-            <br/>
-            <br/>
-
+            <br/><br/>
             <div class="box">
                     <a class="buttonPop" href="#popup3">Delete Account</a>
                 </div>
@@ -263,6 +243,7 @@
                     </div>  
                 </div>
             </div>
+            <br/>
         </div>
     </div>
 
