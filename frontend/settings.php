@@ -6,31 +6,45 @@
 
     $conn = mysqli_connect("localhost", "root", "root", "rowing");
 
-    if(isset($_POST['save'])) {		
+    $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
 
-        $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
-        $membername = $getuser["membername"];
-        echo $membername;
+    $membername = $getuser["membername"];
+    $memberphoneno = $getuser["memberphoneno"];
+    $memberemail = $getuser["memberemail"];
+    $memberstatus = $getuser["memberstatus"];
+    $membersiderow = $getuser["membersiderow"];
+    $memberbio = $getuser["memberbio"];
 
+    if(isset($_POST['save'])) {
         $membername = $_POST['membername'];
         $memberphoneno = $_POST['memberphoneno'];
         $memberemail = $_POST['memberemail'];
         $memberstatus = $_POST['memberstatus'];
         $membersiderow = $_POST['membersiderow'];
         $memberbio = $_POST['memberbio'];
+
+        $update = mysqli_query($conn,"UPDATE `member`
+        SET membername = '$membername', memberphoneno = '$memberphoneno', memberemail = '$memberemail',
+        memberstatus = '$memberstatus', membersiderow = '$membersiderow', memberbio = '$memberbio'
+        WHERE memberid = $user;");
+
+        if(!$update) {
+            echo mysqli_error();
+        } else {
+            echo "Successfully Updated";
+        }
+    }
+
+    if(isset($_POST['changePassword'])) {
         $memberpassword = $_POST['memberpassword'];
         $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
-
-        // $update = mysqli_query($conn,"UPDATE `member`
-        // SET membername = '$membername', memberphoneno = '$memberphoneno', memberemail = '$memberemail',
-        // memberstatus = '$memberstatus', membersiderow = '$membersiderow', memberbio = '$memberbio', memberpassword = '$hash'
-        // WHERE memberid = $_SESSION['user'];");
-
-        // if(!$update) {
-        //     echo mysqli_error();
-        // } else {
-        //     echo "Successfully Updated";
-        // }
+        $update = mysqli_query($conn, "UPDATE `member` SET memberpassword = '$hash' WHERE memberid = $user;");
+        if (!$update) {
+            echo mysqli_error();
+        } else {
+            redirect('settings.php');
+            echo "Password Changed";
+        }
     }
 
     if(isset($_POST['logout'])) {		
@@ -39,7 +53,7 @@
     }
 
     if(isset($_POST['deleteAccount'])) {
-        // $delete = mysqli_query($conn, "DELETE FROM member WHERE memberid = $_SESSION['user']");
+        $delete = mysqli_query($conn, "DELETE FROM member WHERE memberid = $user");
         $_SESSION['user'] = NULL;
         redirect('index.php');
     }
@@ -152,29 +166,90 @@
 
             <div class="center">
             <form method="POST">
-                Name: <input type="text" value=<?php echo $membername;?>>
+                Name: <input type="text" name="membername" value=<?php echo $membername;?>>
                 <br/>
-                Phone Number: <input type="text" value="Phone Number">
+                Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
                 <br/>
-                Email: <input type="text" value="Email">
+                Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
                 <br/>
-                Status: <input type="text" value="Status">
+                <!-- Status: <input type="text" name="memberstatus" value=<?php echo $memberstatus;?>>
                 <br/>
-                Side Row: <input type="text" value="Side">
+                Side Row: <input type="text" name="membersiderow" value=<?php echo $membersiderow;?>>
+                <br/> -->
+                Status :
+                    <input type="radio" name="memberstatus" 
+                    <?php if ($memberstatus == "e-board") echo "checked";?> 
+                    
+                    value="e-board">E-board
+                    <input type="radio" name="memberstatus" Required
+                    <?php if ($memberstatus == "member") echo "checked";?>
+                    value="member">Member
                 <br/>
-                Password: <input type="text" value="Change [change this]">
+                <!-- isset($status) && $status=="e-board" -->
+                Side   : 
+                    <input type="radio" name="membersiderow" 
+                    <?php if ($membersiderow == "port") echo "checked";?>
+                    value="port">Port
+                    <input type="radio" name="membersiderow"
+                    <?php if ($membersiderow == "starboard") echo "checked";?>
+                    value="starboard">Starboard
+                    <input type="radio" name="membersiderow"
+                    <?php if ($membersiderow == "coxswain") echo "checked";?>
+                    value="coxswain">Coxswain
                 <br/>
-                <button type="submit" name="save">Save</a></button>
-                <p></p>
+                <!-- Password: <input type="text" value="Change [change this]">
+                <br/> -->
+                <br/>
+                <!-- <input type="submit" name="save" value="Save"> Save</a></button> -->
+                <div class="box">
+                <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
+            </div>
             </form>
-            <form method="POST">
-                <button type="submit" name="logout">Log Out</button>
-                <br/>
-            </form>
+            <br/>
+            
             <div class="box">
-                    <a class="buttonPop" href="#popup1">Delete Account</a>
+                <a class="buttonPop" href="#popup1">Change password</a>
+            </div>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Enter a new password</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <form method="POST">
+                            New Password: <input type="text" name="memberpassword" placeholder="Enter New Password">
+                            <input type="submit" name="changePassword" value="Save">
+                        </form>
+                    </div>
+                </div>  
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="box">
+                <a class="buttonPop" href="#popup2">Log Out</a>
+            </div>
+            <div id="popup2" class="overlay">
+                <div class="popup">
+                    <h2>Are you sure you want to log out?</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <form method="POST">
+                            <button type="submit" name="logout">Yes</button>
+                            <br/>
+                        </form>
+                        <button onclick="location.href='settings.php';">No</button>
+                    </div>
+                </div>  
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="box">
+                    <a class="buttonPop" href="#popup3">Delete Account</a>
                 </div>
-                <div id="popup1" class="overlay">
+                <div id="popup3" class="overlay">
 
                     <div class="popup">
                         <h2>Are you sure you want to delete your account?</h2>

@@ -71,12 +71,12 @@
             font-size: 1em;
             padding: 10px;
             color: #fff;
-            border: 2px solid #06D85F;
+            border: 2px solid #1f78e4;
             border-radius: 20px/50px;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease-out;
-            background: #06D85F;
+            background: #1f78e4;
         }
         .overlay {
             position: fixed;
@@ -154,7 +154,7 @@
   </div>
 
 <div class="center">
-  <button onclick="location.href='home.php';">Bypass</a></button>
+  <!-- <button onclick="location.href='home.php';">Bypass</a></button> -->
   <p><br></p>
   <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
 
