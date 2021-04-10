@@ -1,7 +1,17 @@
 <!-- SCHEDULE PAGE -->
-<!-- <?php
-    include_once '/db.php';
-?> -->
+<?php
+    session_start();
+    $user = $_SESSION['user'];
+    // echo $user;
+
+    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Connect to DB
+ 
+    $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
+    $memberstatus = $getuser["memberstatus"];
+    // echo $memberstatus;
+ 
+    mysqli_close($conn); // Close connection
+?>
 
 <?php
     // Create connection
@@ -123,8 +133,9 @@
                 </back-button>
 
                 <div class="center">
-                    <a class="buttonPop" href="#popup1">+ Create Event</a>
-                    <p><br></p>
+                <div id="createEventEboard" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+                <a class="buttonPop" href="#popup1">+ Create Event</a>
+                <p><br></p>
                 <div id="popup1" class="overlay">
                 <div class="popup">
                     <h2>New Event</h2>
@@ -144,7 +155,7 @@
                     </div>
                 </div>
                </div>
-                
+               </div>
             </div>
         </div>
         <p><br></p>
