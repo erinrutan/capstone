@@ -10,6 +10,36 @@
     $memberstatus = $getuser["memberstatus"];
     // echo $memberstatus;
 
+    $date = date("Y-m-d");
+    $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
+            FROM event
+            WHERE substring(eventdate,1,10) = '$date';";
+    $todayEvents = mysqli_query( $conn, $sql);
+
+    $members = mysqli_query($conn, "SELECT membername FROM member;");
+
+    if(isset($_POST['takeAttendance'])) {
+        // idk if this will work, needs work
+        // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
+        echo "HERE!";
+
+        $eventname = $_POST['eventname'];
+        echo $eventname;
+        
+        $membername = $_POST[$mem];
+        echo $membername;
+        // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
+      
+
+        // $add = mysqli_query($conn,"INSERT INTO attends VALUES () ");
+
+        // if(!$add) {
+        //     echo mysqli_error();
+        // } else {
+        //     echo "Successfully Updated";
+        // }
+    }
+
     mysqli_close($conn); // Close connection
 ?>
 
@@ -39,6 +69,76 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+
+    /* For Button PopUp */
+        .buttonPop {
+            font-size: 1em;
+            padding: 10px;
+            color: #fff;
+            border: 2px solid #1f78e4;
+            border-radius: 25px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            background: #1f78e4;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.5s;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 0.5s ease-in-out;
+        }
+        .popup h2 {
+            margin: 10px;
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+            font-size: 16px;
+        }   
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        .popup .close:hover {
+            color: #06D85F;
+        }
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+
+        @media screen and (max-width: 700px){
+            .box{
+                width: 70%;
+            }
+            .popup{
+                width: 70%;
+            }
+        }
     </style>
 </head>
 <body>  
@@ -55,6 +155,49 @@
 
     <div id="attendance">
         <div class="home-page">
+        <div id="takeAttendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+                <div class="center">
+                    <div class="box">
+                        <a class="buttonPop" href="#popup3">Take Attendance</a>
+                    </div>
+                    <div id="popup3" class="overlay">
+
+                        <div class="popup">
+                            <h2>Take Attendance</h2>
+                            <a class="close" href="#">&times;</a>
+                            <div class="content">
+                            <form method="post" action="<?= $_SERVER['rowing']; ?>">
+                                <select name="list">
+                                    <?php 
+                                    // $events = array();  //  CAN'T FIGURE OUT HOW TO GET THIS TO WORK
+                                    while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
+                                        // $events_push($row['eventname']);
+                                    ?>
+                                    <option value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
+                                    <?php endwhile; ?>
+                                </select>
+                                <br/>
+                                <!-- Me trying to get radio button to work ;_; -->
+                                <?php
+                                    while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
+                                        $mem = $row['membername'];
+                                        echo $mem;
+                                ?> 
+                                <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
+                                <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
+                                <br/>
+                                <?php endwhile; ?>
+
+                                <br/>
+                                <input type="submit" name="takeAttendance" value="Save">
+                            </form>
+                            
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br/>
             <table>
                 <tr>
                 <th>Events you have attended</th>
@@ -119,6 +262,7 @@
                         ?>
                 </table>
             </div>
+
         </div>
     </div>
 

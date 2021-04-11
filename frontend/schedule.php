@@ -18,7 +18,7 @@
         $eventdescription = $_POST['eventdescription'];
 
         $insert = mysqli_query($conn,"INSERT INTO `event`
-        VALUES (NULL,'$eventname','$eventlocation','$eventdate','$eventdescription','1');");
+        VALUES (NULL,'$eventname','$eventlocation','$eventdate','$eventdescription','$user');");
 
         if(!$insert){
             echo mysqli_error();
@@ -117,38 +117,71 @@
 
     <div class="schedule">
         <div class="product"> 
-            <div class="grid-container">
+            <!-- <div class="grid-container"> -->
                 <back-button onclick="location.href='home.php';">
                     <back-img><img src="back_button.png" id="home" width="100" height="100" /></back-img></a>
                 </back-button>
-
+        </div>
                 <div class="center">
-                <div id="createEventEboard" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
-                    <a class="buttonPop" href="#popup1">+ Create Event</a>
-                    <p><br></p>
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-                            <h2>New Event</h2>
-                            <a class="close" href="#">&times;</a>
-                            <div class="content">
-                                <form method="POST">
-                                Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
-                                <br/>
-                                Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
-                                <br/>
-                                Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
-                                <br/>
-                                Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
-                                <input type="submit" name="submit" value="Save">
-                                </form>
+                    <div id="createEventEboard" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+                        <a class="buttonPop" href="#popup1">+ Create Event</a>
+                        <p><br></p>
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <h2>New Event</h2>
+                                <a class="close" href="#">&times;</a>
+                                <div class="content">
+                                    <form method="POST">
+                                    Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                    <br/>
+                                    Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    <br/>
+                                    Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                    <br/>
+                                    Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                    <input type="submit" name="submit" value="Save">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                </div>
+                    <div class="home-page">
+                    <h1> Today's Events: </h1>
+                    <table>
+                        <tr>
+                            <th>Event</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                        </tr>
+                        <?php 
+                            $date = date("Y-m-d");
+                            // echo $date;
+
+                            $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+
+                            $sql = "SELECT eventname, eventlocation, substring(eventdate,12,5) as 'date', eventdescription 
+                                    FROM event
+                                    WHERE substring(eventdate,1,10) = '$date';";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["date"] 
+                                . "</td><td>" . $row["eventlocation"] . "</td><td>" . $row["eventdescription"] . "</td></tr>";
+                            }
+                            echo "</table>";
+                            } else { echo "0 results"; }
+                            $conn->close();
+                        ?>
+                    </table>
+                    <br/>
+                    </div>
+                <!-- </div> -->
             </div>
             <p><br></p>
-        
+        <!-- </div>  -->
             <div class="container">
                 <!-- Calendar! -->
                 <div class="calendar">
@@ -172,7 +205,7 @@
                     <div class="days"></div>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="schedule.js"></script> 

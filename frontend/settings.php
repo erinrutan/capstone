@@ -143,7 +143,6 @@
                 width: 70%;
             }
         }
-
     </style>
 </head>
 <body>  
