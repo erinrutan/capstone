@@ -46,6 +46,17 @@ body {
     height: 50px;
     text-align: left;
   }
+
+  .product-image-back {
+    display: flex;
+    flex-flow: wrap;
+    padding: 2rem;
+    width: 30px;
+    height: 50px;
+    text-align: left;
+    margin-top: 10px;
+    width: 20%;
+  }
   
   .product-image,
   .product-info {

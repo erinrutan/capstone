@@ -149,16 +149,19 @@
     <div class="nav-bar"></div>
     <div class="center"><h1>CNU Rowing Club - Settings</h1></div>
 
-    <div class="product">
-        <div class="grid-container">
+    <div class="container-fluid">
+    <div id="app">
+    <div class="col-xs-1">
+        <div class="product">
             <back-button onclick="location.href='home.php';">
                 <back-img><img src="back_button.png" id="home" width="100" height="100" /></back-img></a>
             </back-button>
         </div>
     </div>
-
+    
+    <div class="col-xs-2">
     <div id="settings">
-        <div class="home-page">
+        <div class="textarea">
             <div class="center">
                 <form method="POST">
                     Name: <input type="text" name="membername" value=<?php echo $membername;?>>
@@ -244,6 +247,9 @@
             </div>
             <br/>
         </div>
+    </div>    
+    </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
