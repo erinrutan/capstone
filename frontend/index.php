@@ -5,7 +5,7 @@
     // $hash = password_hash($givenPassword, PASSWORD_DEFAULT);
     // $verify = password_verify($inputPassword, $hash);
 
-    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+    $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
     if(isset($_POST['submit']))
     {		
