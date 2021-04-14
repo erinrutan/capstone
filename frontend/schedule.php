@@ -10,6 +10,8 @@
     $memberstatus = $getuser["memberstatus"];
     // echo $memberstatus;
 
+    
+
     if(isset($_POST['submit']))
     {		
         $eventname = $_POST['eventname'];
@@ -156,7 +158,7 @@
                         </tr>
                         <?php 
                             $date = date("Y-m-d");
-                            // echo $date;
+                            echo $date;
 
                             $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
