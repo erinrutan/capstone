@@ -4,7 +4,7 @@
     $user = $_SESSION['user'];
     // echo $user;
 
-    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+    $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $membername = $getuser["membername"];

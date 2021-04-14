@@ -1,12 +1,8 @@
 <?php
-$servername = "localhost";
-$database = "rowing";
-$username = "root";
-$password = "root";
 
 // Create connection
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing');
 
 // Check connection
 

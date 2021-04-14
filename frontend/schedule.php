@@ -4,7 +4,7 @@
     $user = $_SESSION['user'];
     // echo $user;
 
-    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Connect to DB
+    $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Connect to DB
  
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $memberstatus = $getuser["memberstatus"];
@@ -21,7 +21,7 @@
         VALUES (NULL,'$eventname','$eventlocation','$eventdate','$eventdescription','$user');");
 
         if(!$insert){
-            echo mysqli_error();
+            echo "ERROR";
         } else {
             echo "New event created!";
         }
@@ -158,7 +158,7 @@
                             $date = date("Y-m-d");
                             // echo $date;
 
-                            $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+                            $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
                             $sql = "SELECT eventname, eventlocation, substring(eventdate,12,5) as 'date', eventdescription 
                                     FROM event
@@ -191,7 +191,7 @@
                             $date = date("Y-m-d");
                             // echo $date;
 
-                            $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+                            $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
                             $sql = "SELECT eventname, eventlocation, substring(eventdate,1,10) as 'date', substring(eventdate,12,5) as 'time', eventdescription 
                                     FROM event

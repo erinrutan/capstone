@@ -55,7 +55,7 @@
                     <th>Biography</th>
                 </tr>
                 <?php 
-                    $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+                    $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
                     $sql = "SELECT membername, memberphoneno, memberemail, memberstatus, membersiderow, memberbio FROM member";
                     $result = $conn->query($sql);
