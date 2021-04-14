@@ -19,7 +19,7 @@
         $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
 
         $insert = mysqli_query($conn,"INSERT INTO `member`
-        VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$memberbio','$hash');");
+        VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$hash','$memberbio');");
 
         if(!$insert) {
             echo mysqli_error();
