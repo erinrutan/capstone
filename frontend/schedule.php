@@ -132,13 +132,13 @@
                                 <a class="close" href="#">&times;</a>
                                 <div class="content">
                                     <form method="POST">
-                                    Event Name : <input type="text" name="eventname" placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                    Event Name : <input type="text" name='eventname' placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
                                     <br/>
-                                    Date : <input type="datetime" name="eventdate" placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    Date : <input type="datetime" name='eventdate' placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
                                     <br/>
-                                    Location : <input type="text" name="eventlocation" placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                    Location : <input type="text" name='eventlocation' placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
                                     <br/>
-                                    Description : <input type="text" name="eventdescription" placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                    Description : <input type="text" name='eventdescription' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                                     <input type="submit" name="submit" value="Save">
                                     </form>
                                 </div>
