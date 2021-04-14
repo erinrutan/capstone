@@ -172,11 +172,45 @@
                                 . "</td><td>" . $row["eventlocation"] . "</td><td>" . $row["eventdescription"] . "</td></tr>";
                             }
                             echo "</table>";
-                            } else { echo "0 results"; }
+                            } else { echo "No Events Today"; }
                             $conn->close();
                         ?>
                     </table>
                     <br/>
+
+                    <h1> Upcoming Events: </h1>
+                    <table>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                        </tr>
+                        <?php 
+                            $date = date("Y-m-d");
+                            // echo $date;
+
+                            $conn = mysqli_connect("localhost", "root", "root", "rowing"); // Create connection
+
+                            $sql = "SELECT eventname, eventlocation, substring(eventdate,1,10) as 'date', substring(eventdate,12,5) as 'time', eventdescription 
+                                    FROM event
+                                    WHERE substring(eventdate,1,10) > '$date';";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr><td>" . $row["eventname"]. "</td><td>" . $row["date"]. "</td><td>" . $row["time"] 
+                                . "</td><td>" . $row["eventlocation"] . "</td><td>" . $row["eventdescription"] . "</td></tr>";
+                            }
+                            echo "</table>";
+                            } else { echo "No Upcoming Events"; }
+                            $conn->close();
+                        ?>
+                    </table>
+                    <br/>
+
                     </div>
                 <!-- </div> -->
             </div>
