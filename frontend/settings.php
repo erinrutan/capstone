@@ -159,7 +159,8 @@
             </back-button>
         </div>
     </div>
-    
+    <?php echo "Member name: ";?>
+    <?php echo $membername;?>
     <div class="col-xs-2">
     <div id="settings">
         <div class="textarea">
