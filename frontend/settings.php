@@ -95,7 +95,7 @@
 
     <style>
         form  { display: table;
-                text-align: center; }
+                margin: 0 auto; }
         p     { display: table-row;  }
         label { display: table-cell; }
         input { display: table-cell; }
