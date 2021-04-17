@@ -171,6 +171,10 @@
         <p><label> </label>
         <button type="submit" name="login">Sign in</button>
         </p>
+        <br/>
+        <p> <label> </label>
+        <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
+        <p>
       </form>
     </div>
 
