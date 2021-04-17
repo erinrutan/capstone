@@ -92,6 +92,13 @@
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
+    <style>
+        form  { display: table;      }
+        p     { display: table-row;  }
+        label { display: table-cell; }
+        input { display: table-cell; }
+    </style>
     <!-- For Button PopUp -->
     <style>
         .buttonPop {
@@ -185,9 +192,13 @@
         <div class="textarea">
             <div class="center">
                 <form method="POST">
-                    Name: <input type="text" name="membername" value='<?php echo $membername;?>'>
+                    <p>
+                    <label>Name:</label> <input type="text" name="membername" value='<?php echo $membername;?>'>
+                    </p>
                     <br/>
-                    Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
+                    <p>
+                    <label>Phone Number:</label> <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
+                    </p>
                     <br/>
                     Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
                     <br/>
