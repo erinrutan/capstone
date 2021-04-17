@@ -236,9 +236,9 @@
                     </p>
                     <br/>
                     <p><label> </label>
-                        <div class="box">
+                        <!-- <div class="box"> -->
                             <a class="buttonPop" href="#popup1">Change password</a>
-                        </div>
+                        <!-- </div> -->
                     </p>
                     <br/><br/>
                     <p><label> </label>
