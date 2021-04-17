@@ -134,14 +134,24 @@
                                 <a class="close" href="#">&times;</a>
                                 <div class="content">
                                     <form method="POST">
-                                    Event Name : <input type="text" name='eventname' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                    <p>
+                                    <label>Event Name :</label> <input type="text" name='eventname' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                    </p>
                                     <br/>
-                                    Date : <input type="datetime" name='eventdate' pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}'placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    <p>
+                                    <label>Date :</label> <input type="datetime" name='eventdate' pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}'placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    </p>
                                     <br/>
-                                    Location : <input type="text" name='eventlocation' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                    <p>
+                                    <label>Location :</label> <input type="text" name='eventlocation' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                    </p>
                                     <br/>
-                                    Description : <input type="text" name='eventdescription' pattern='[a-zA-Z0-9\s.!]+' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                    <p>
+                                    <label>Description :</label> <input type="text" name='eventdescription' pattern='[a-zA-Z0-9\s.!]+' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                    </p>
+                                    <p> <label> </label>
                                     <input type="submit" name="submit" value="Save">
+                                    </p>
                                     </form>
                                 </div>
                             </div>
