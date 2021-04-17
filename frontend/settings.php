@@ -234,18 +234,19 @@
                     <p><label> </label>
                     <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
                     </p>
+                    <br/>
                     <p><label> </label>
                         <div class="box">
                             <a class="buttonPop" href="#popup1">Change password</a>
                         </div>
                     </p>
-                    <br/>
+                    <br/><br/>
                     <p><label> </label>
                         <div class="box">
                             <a class="buttonPop" href="#popup2">Log Out</a>
                         </div>
                     </p>
-                    <br/>
+                    <br/><br/>
                     <p><label> </label>
                         <div class="box">
                             <a class="buttonPop" href="#popup3">Delete Account</a>
