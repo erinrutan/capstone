@@ -94,7 +94,8 @@
 
 
     <style>
-        form  { display: table;      }
+        form  { display: table;
+                align-content: center; }
         p     { display: table-row;  }
         label { display: table-cell; }
         input { display: table-cell; }
@@ -204,6 +205,7 @@
                     <label>Email:</label> <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
                     <br/>
                     </p>
+                    <br/>
                     <p>
                     <label>Status :</label>
                         <input type="radio" name="memberstatus" 
