@@ -258,13 +258,21 @@
                     <a class="close" href="#">&times;</a>
                     <div class="content">
                         <form method="POST">
-                            Confirm Current Password: <input type="password" name="inputpassword" placeholder="Enter Current Password" Required value="<?php echo $inputpassword;?>">
+                            <p>
+                            <label>Confirm Current Password:</label> <input type="password" name="inputpassword" placeholder="Enter Current Password" Required value="<?php echo $inputpassword;?>">
+                            </p>
                             <br/>
-                            New Password: <input type="password" name="memberpassword" minlength='8' placeholder="Enter New Password" Required value="<?php echo $memberpassword;?>">
+                            <p>
+                            <label>New Password:</label> <input type="password" name="memberpassword" minlength='8' placeholder="Enter New Password" Required value="<?php echo $memberpassword;?>">
+                            </p>
                             <br/>
-                            Confirm New Password: <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="Must match" Required value="<?php echo $memberpasswordCHECK;?>">
+                            <p>
+                            <label>Confirm New Password:</label> <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="Must match" Required value="<?php echo $memberpasswordCHECK;?>">
+                            </p>
                             <br/>
-                            <input type="submit" name="changePassword" value="Save">
+                            <p> <label> </label>
+                            <input type="submit" class='buttonPop' name="changePassword" value="Save">
+                            </p>
                             <br/>
                         </form>
                     </div>
