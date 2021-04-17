@@ -167,8 +167,10 @@
         <p>
         <label>Password :</label> <input type="password" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
         </p>
-        <br/>          
+        <br/>     
+        <p>     
         <button type="submit" name="login">Sign in</button>
+        </p>
       </form>
     </div>
 
