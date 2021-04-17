@@ -180,8 +180,8 @@
 
     <div class="center">
       <!-- <button onclick="location.href='home.php';">Bypass</a></button> -->
-      <br/>
-      <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a>
+      <!-- <br/> -->
+      <!-- <a class="buttonPop" href="#popup1">CREATE ACCOUNT</a> -->
 
       <div id="popup1" class="overlay">
         <div class="popup">
