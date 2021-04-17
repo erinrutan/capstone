@@ -236,21 +236,15 @@
                     </p>
                     <br/>
                     <p><label> </label>
-                        <!-- <div class="box"> -->
-                            <a class="buttonPop" href="#popup1">Change password</a>
-                        <!-- </div> -->
+                        <a class="buttonPop" href="#popup1">Change password</a>
                     </p>
                     <br/><br/>
                     <p><label> </label>
-                        <div class="box">
-                            <a class="buttonPop" href="#popup2">Log Out</a>
-                        </div>
+                        <a class="buttonPop" href="#popup2">Log Out</a>
                     </p>
                     <br/><br/>
                     <p><label> </label>
-                        <div class="box">
-                            <a class="buttonPop" href="#popup3">Delete Account</a>
-                        </div>
+                        <a class="buttonPop" href="#popup3">Delete Account</a>
                     </p>
                 </form>
             </div>
