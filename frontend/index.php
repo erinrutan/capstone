@@ -22,6 +22,7 @@
 
           $insert = mysqli_query($conn,"INSERT INTO `member`
           VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$hash','$memberbio');");
+
         } else {
           echo '<script type="text/javascript">';
           echo ' alert("Passwords do not match.")'; 
@@ -30,7 +31,8 @@
         if(!$insert) {
             echo mysqli_error();
         } else {
-            echo "Account created";
+            redirect("index.php");
+            echo "Account sucessfully created";
         }
     }
 
