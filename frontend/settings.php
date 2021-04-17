@@ -35,14 +35,33 @@
     }
 
     if(isset($_POST['changePassword'])) {
+        $inputpassword = $_POST['inputpassword'];
         $memberpassword = $_POST['memberpassword'];
-        $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
-        $update = mysqli_query($conn, "UPDATE `member` SET memberpassword = '$hash' WHERE memberid = $user;");
-        if (!$update) {
-            echo mysqli_error();
-        } else {
-            redirect('settings.php');
-            echo "Password Changed";
+        $memberpasswordCHECK = $_POST['memberpasswordCHECK'];
+
+        $getdbPassword = mysqli_fetch_assoc(mysqli_query($conn, "SELECT memberpassword FROM member WHERE memberid = $user;"));
+        $dbPassword = $getdbPassword["memberpassword"];
+
+        if ($memberpassword == $memberpasswordCHECK ) {
+            if (password_verify($inputpassword, $dbPassword)) {
+                $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
+                $update = mysqli_query($conn, "UPDATE `member` SET memberpassword = '$hash' WHERE memberid = $user;");
+                if (!$update) {
+                    echo mysqli_error();
+                } else {
+                    redirect('settings.php');
+                    echo "Password Changed";
+                }
+            } else {
+                echo '<script type="text/javascript">';
+                echo 'alert("Incorrect current password.");'; 
+                echo '</script>';
+            }
+        }
+        else {
+            echo '<script type="text/javascript">';
+            echo 'alert("New passwords do not match.");'; 
+            echo '</script>';
         }
     }
 
@@ -206,8 +225,11 @@
                     <a class="close" href="#">&times;</a>
                     <div class="content">
                         <form method="POST">
-                            New Password: <input type="text" name="memberpassword" placeholder="Enter New Password">
+                            Confirm Current Password: <input type="text" name="inputpassword" placeholder="Enter Current Password" Required value="<?php echo $inputpassword;?>">
+                            New Password: <input type="text" name="memberpassword" minlength='8' placeholder="Enter New Password" Required value="<?php echo $memberpassword;?>">
+                            Confirm New Password: <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="Must match" Required value="<?php echo $memberpasswordCHECK;?>">
                             <input type="submit" name="changePassword" value="Save">
+                            <br/>
                         </form>
                     </div>
                 </div>  

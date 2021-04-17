@@ -195,7 +195,7 @@
                 <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="coxswain") 
                   echo "checked";?> value="coxswain">Coxswain
               <br/>
-              Bio    : <input type="textarea" name="memberbio" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+              Bio    : <input type="textarea" name="memberbio" pattern="[a-zA-Z0-9\s]+" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
               <br/>
               <input type="submit" name="submit" value="Save">
             </form>
