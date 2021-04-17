@@ -225,9 +225,12 @@
                     <a class="close" href="#">&times;</a>
                     <div class="content">
                         <form method="POST">
-                            Confirm Current Password: <input type="text" name="inputpassword" placeholder="Enter Current Password" Required value="<?php echo $inputpassword;?>">
-                            New Password: <input type="text" name="memberpassword" minlength='8' placeholder="Enter New Password" Required value="<?php echo $memberpassword;?>">
+                            Confirm Current Password: <input type="password" name="inputpassword" placeholder="Enter Current Password" Required value="<?php echo $inputpassword;?>">
+                            <br/>
+                            New Password: <input type="password" name="memberpassword" minlength='8' placeholder="Enter New Password" Required value="<?php echo $memberpassword;?>">
+                            <br/>
                             Confirm New Password: <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="Must match" Required value="<?php echo $memberpasswordCHECK;?>">
+                            <br/>
                             <input type="submit" name="changePassword" value="Save">
                             <br/>
                         </form>
