@@ -73,6 +73,14 @@
     <link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>CNU Rowing Club</title>
+    <!-- For input field alignment -->
+    <style>
+        form  { display: table;
+                margin: 0 auto; }
+        p     { display: table-row; }
+        label { display: table-cell; }
+        input { display: table-cell; }
+    </style>
     <!-- For Button PopUp -->
     <style>
         .buttonPop {
@@ -152,9 +160,13 @@
 
     <div class="center">
       <form method="POST">
-        Email    : <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
+        <p>
+        <label>Email :</label> <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
+        </p>
         <br/>
-        Password : <input type="password" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
+        <p>
+        <label>Password :</label> <input type="password" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
+        </p>
         <br/>          
         <button type="submit" name="login">Sign in</button>
       </form>
