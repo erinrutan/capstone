@@ -96,7 +96,8 @@
     <style>
         form  { display: table;
                 margin: 0 auto; }
-        p     { display: table-row;  }
+        p     { display: table-row; 
+                margin: 0 auto;  }
         label { display: table-cell; }
         input { display: table-cell; }
     </style>
