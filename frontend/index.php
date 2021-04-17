@@ -144,9 +144,9 @@
 
     <div class="center">
       <form method="POST">
-        Email    : <input type="text" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
+        Email    : <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
         <br/>
-        Password : <input type="varchar(225)" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
+        Password : <input type="password" name="inputpassword" placeholder="Enter Password" Required value="<?php echo $inputpassword;?>">
         <br/>          
         <button type="submit" name="login">Sign in</button>
       </form>
@@ -169,7 +169,7 @@
               <br/>
               Password     : <input type="password" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
               <br/>
-              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
+              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="###-###-####" Required value="<?php echo $memberphoneno;?>">
               <br/>
               Status :
                 <input type="radio" name="memberstatus" <?php if (isset($status) && $status=="e-board") 
