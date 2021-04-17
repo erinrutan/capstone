@@ -98,7 +98,8 @@
                 margin: 0 auto; }
         p     { display: table-row; }
         label { display: table-cell; }
-        input { display: table-cell; }
+        input { display: table-cell; 
+                margin: 0 auto; }
     </style>
     <!-- For Button PopUp -->
     <style>
