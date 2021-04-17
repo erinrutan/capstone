@@ -229,8 +229,8 @@
                         <?php if ($membersiderow == "coxswain") echo "checked";?>
                         value="coxswain">Coxswain
                     </p>
-                    <br/><br/>
-                    <div class="box">
+                    <br/>
+                    <!-- <div class="box"> -->
                     <p><label> </label>
                     <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
                     </p>
