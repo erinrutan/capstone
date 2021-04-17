@@ -8,7 +8,6 @@
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $membername = $getuser["membername"];
-    echo $membername;
     $memberphoneno = $getuser["memberphoneno"];
     $memberemail = $getuser["memberemail"];
     $memberstatus = $getuser["memberstatus"];
@@ -159,17 +158,16 @@
             </back-button>
         </div>
     </div>
-    <?php echo "Member name: ";?>
-    <?php echo $membername;?>
+    <script>
+    var mName = <?php echo $membername;?>;
+    </script>
     <div class="col-xs-2">
     <div id="settings">
         <div class="textarea">
             <div class="center">
                 <form method="POST">
-                    var mName = <?php echo $membername;?>;
-                    Name: <input type="text" name="membername" value=mName>
+                    Name: <input type="text" name="membername" value=<script>mName</script>>
                     <br/>
-                    <?php echo $membername;?>
                     Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
                     <br/>
                     Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
