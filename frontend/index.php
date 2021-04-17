@@ -167,7 +167,7 @@
               <br/>
               Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
               <br/>
-              Password     : <input type="varchar(225)" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
+              Password     : <input type="password" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
               <br/>
               Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
               <br/>
