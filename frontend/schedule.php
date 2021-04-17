@@ -139,7 +139,7 @@
                                     </p>
                                     <br/>
                                     <p>
-                                    <label>Date :</label> <input type="datetime" name='eventdate' pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}'placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    <label>Date :</label> <input type="datetime" name='eventdate' pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}'placeholder="YYYY-MM-DD hh:mm:ss" Required value="<?php echo $eventdate;?>">
                                     </p>
                                     <br/>
                                     <p>
@@ -174,7 +174,8 @@
 
                             $sql = "SELECT eventname, eventlocation, substring(eventdate,12,5) as 'date', eventdescription 
                                     FROM event
-                                    WHERE substring(eventdate,1,10) = '$date';";
+                                    WHERE substring(eventdate,1,10) = '$date'
+                                    ORDER BY 'date';";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
@@ -207,7 +208,8 @@
 
                             $sql = "SELECT eventname, eventlocation, substring(eventdate,1,10) as 'date', substring(eventdate,12,5) as 'time', eventdescription 
                                     FROM event
-                                    WHERE substring(eventdate,1,10) > '$date';";
+                                    WHERE substring(eventdate,1,10) > '$date'
+                                    ORDER BY 'date';";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
