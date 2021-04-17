@@ -8,6 +8,7 @@
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $membername = $getuser["membername"];
+    echo $membername;
     $memberphoneno = $getuser["memberphoneno"];
     $memberemail = $getuser["memberemail"];
     $memberstatus = $getuser["memberstatus"];
