@@ -96,9 +96,12 @@
     <style>
         form  { display: table;
                 text-align: center; }
-        p     { display: table-row;  }
-        label { display: table-cell; }
-        input { display: table-cell; }
+        p     { display: table-row;
+                text-align: center;  }
+        label { display: table-cell;
+                text-align: center; }
+        input { display: table-cell; 
+                text-align: center;}
     </style>
     <!-- For Button PopUp -->
     <style>
