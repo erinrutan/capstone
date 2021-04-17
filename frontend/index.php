@@ -23,7 +23,7 @@
           $insert = mysqli_query($conn,"INSERT INTO `member`
           VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$hash','$memberbio');");
         } else {
-          echo "Passwords do not match.";
+          die("Passwords do not match.");
         }
         if(!$insert) {
             echo mysqli_error();
