@@ -169,6 +169,7 @@
                     <?php echo $membername;?>
                     Name: <input type="text" name="membername" value=<?php echo $membername;?>>
                     <br/>
+                    <?php echo $membername;?>
                     Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
                     <br/>
                     Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
