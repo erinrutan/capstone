@@ -171,7 +171,7 @@
           <a class="close" href="#">&times;</a>
           <div class="content">
             <form method="POST">
-              Name         : <input type="text" name="membername" pattern="[A-Za-z\s]" placeholder="Enter Name" Required value="<?php echo $membername;?>">
+              Name         : <input type="text" name="membername" pattern="[a-zA-Z\s]+" placeholder="Enter Name" Required value="<?php echo $membername;?>">
               <br/>
               Email        : <input type="email" id="email" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
               <br/>
