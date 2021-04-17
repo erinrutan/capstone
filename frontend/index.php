@@ -165,11 +165,11 @@
             <form method="POST">
               Name         : <input type="text" name="membername" placeholder="Enter Name" Required value="<?php echo $membername;?>">
               <br/>
-              Email        : <input type="text" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
+              Email        : <input type="email" id="email" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
               <br/>
               Password     : <input type="password" name="memberpassword" placeholder="Enter Password" Required value="<?php echo $memberpassword;?>">
               <br/>
-              Phone Number : <input type="text" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
+              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="Enter Phone Number" Required value="<?php echo $memberphoneno;?>">
               <br/>
               Status :
                 <input type="radio" name="memberstatus" <?php if (isset($status) && $status=="e-board") 
