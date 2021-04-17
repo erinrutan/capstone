@@ -230,9 +230,8 @@
                         value="coxswain">Coxswain
                     </p>
                     <br/><br/>
-                    
-                    <p><input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes"></p>
                     <div class="box">
+                    <p><label></label><input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes"></p>
                 </form>
             </div>
             <br/>
