@@ -134,13 +134,13 @@
                                 <a class="close" href="#">&times;</a>
                                 <div class="content">
                                     <form method="POST">
-                                    Event Name : <input type="text" name='eventname' placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
+                                    Event Name : <input type="text" name='eventname' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Event Name" Required value="<?php echo $eventname;?>">
                                     <br/>
-                                    Date : <input type="datetime" name='eventdate' placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
+                                    Date : <input type="datetime" name='eventdate' pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}\s[0-9]{2}:[0-9]{2}:[0-9]{2}'placeholder="Enter Date (YYYY-MM-DD hh:mm:ss)" Required value="<?php echo $eventdate;?>">
                                     <br/>
-                                    Location : <input type="text" name='eventlocation' placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
+                                    Location : <input type="text" name='eventlocation' pattern='[a-zA-Z0-9\s]+' placeholder="Enter Location" Required value="<?php echo $eventlocation;?>">
                                     <br/>
-                                    Description : <input type="text" name='eventdescription' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
+                                    Description : <input type="text" name='eventdescription' pattern='[a-zA-Z0-9\s.!]+' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                                     <input type="submit" name="submit" value="Save">
                                     </form>
                                 </div>
