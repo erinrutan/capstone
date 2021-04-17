@@ -200,9 +200,12 @@
                     <label>Phone Number:</label> <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
                     </p>
                     <br/>
-                    Email: <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
+                    <p>
+                    <label>Email:</label> <input type="text" name="memberemail" value=<?php echo $memberemail;?>>
                     <br/>
-                    Status :
+                    </p>
+                    <p>
+                    <label>Status :</label>
                         <input type="radio" name="memberstatus" 
                         <?php if ($memberstatus == "e-board") echo "checked";?> 
                         
@@ -210,8 +213,10 @@
                         <input type="radio" name="memberstatus" Required
                         <?php if ($memberstatus == "member") echo "checked";?>
                         value="member">Member
+                    </p>
                     <br/>
-                    Side   : 
+                    <p>
+                    <label>Side   : </label>
                         <input type="radio" name="membersiderow" 
                         <?php if ($membersiderow == "port") echo "checked";?>
                         value="port">Port
@@ -221,6 +226,7 @@
                         <input type="radio" name="membersiderow"
                         <?php if ($membersiderow == "coxswain") echo "checked";?>
                         value="coxswain">Coxswain
+                    </p>
                     <br/><br/>
                     <div class="box">
                     <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
