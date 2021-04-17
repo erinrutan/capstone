@@ -167,7 +167,7 @@
             <div class="center">
                 <form method="POST">
                 <?php echo $membername;?>
-                    Name: <input type="text" name="membername" value=<?php echo $membername;?>>
+                    Name: <input type="text" name="membername" autocomplete="off" value=<?php echo $membername;?>>
                     <br/>
                     Phone Number: <input type="text" name="memberphoneno" value=<?php echo $memberphoneno;?>>
                     <br/>
