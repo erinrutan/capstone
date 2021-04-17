@@ -282,8 +282,9 @@
                         <form method="POST">
                             <button type="submit" name="logout">Yes</button>
                             <br/>
+                        
+                            <button onclick="location.href='settings.php';">No</button>
                         </form>
-                        <button onclick="location.href='settings.php';">No</button>
                     </div>
                 </div>  
             </div>
@@ -299,8 +300,8 @@
                         <div class="content">
                         <form method="POST">
                             <button type="submit" name="deleteAccount">Yes</button>
-                        </form>
                             <button onclick="location.href='settings.php';">No</button>
+                        </form>
                         </div>
                     </div>  
                 </div>
