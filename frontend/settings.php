@@ -231,7 +231,7 @@
                     </p>
                     <br/><br/>
                     <div class="box">
-                    <p><input> </input>
+                    <p><label> </label>
                     <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
                     </p>
                 </form>
