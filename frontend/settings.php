@@ -234,12 +234,29 @@
                     <p><label> </label>
                     <input type="submit" name="save" class="buttonPop" href="#popup1" value="Save Changes">
                     </p>
+                    <p><label> </label>
+                        <div class="box">
+                            <a class="buttonPop" href="#popup1">Change password</a>
+                        </div>
+                    </p>
+                    <br/>
+                    <p><label> </label>
+                        <div class="box">
+                            <a class="buttonPop" href="#popup2">Log Out</a>
+                        </div>
+                    </p>
+                    <br/>
+                    <p><label> </label>
+                        <div class="box">
+                            <a class="buttonPop" href="#popup3">Delete Account</a>
+                        </div>
+                    </p>
                 </form>
             </div>
-            <br/>
+            <!-- <br/>
             <div class="box">
                 <a class="buttonPop" href="#popup1">Change password</a>
-            </div>
+            </div> -->
             <div id="popup1" class="overlay">
                 <div class="popup">
                     <h2>Enter a new password</h2>
@@ -259,9 +276,9 @@
                 </div>  
             </div>
             <br/><br/>
-            <div class="box">
+            <!-- <div class="box">
                 <a class="buttonPop" href="#popup2">Log Out</a>
-            </div>
+            </div> -->
             <div id="popup2" class="overlay">
                 <div class="popup">
                     <h2>Are you sure you want to log out?</h2>
@@ -276,9 +293,9 @@
                 </div>  
             </div>
             <br/><br/>
-            <div class="box">
+            <!-- <div class="box">
                     <a class="buttonPop" href="#popup3">Delete Account</a>
-                </div>
+                </div> -->
                 <div id="popup3" class="overlay">
 
                     <div class="popup">
