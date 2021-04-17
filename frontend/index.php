@@ -169,7 +169,7 @@
         </p>
         <br/>     
         <p><label> </label>
-        <input><button type="submit" name="login">Sign in</button></input>
+        <button type="submit" name="login">Sign in</button>
         </p>
       </form>
     </div>
