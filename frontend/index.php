@@ -16,11 +16,15 @@
         $membersiderow = $_POST['membersiderow'];
         $memberbio = $_POST['memberbio'];
         $memberpassword = $_POST['memberpassword'];
-        $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
+        $memberpasswordCHECK = $_POST['memberpasswordCHECK'];
+        if ($memberpassword == $memberpasswordCHECK ) {
+          $hash = password_hash($memberpassword, PASSWORD_DEFAULT);
 
-        $insert = mysqli_query($conn,"INSERT INTO `member`
-        VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$hash','$memberbio');");
-
+          $insert = mysqli_query($conn,"INSERT INTO `member`
+          VALUES (NULL,'$membername','$memberphoneno','$memberemail','$memberstatus','$membersiderow','$hash','$memberbio');");
+        } else {
+          echo "Passwords do not match.";
+        }
         if(!$insert) {
             echo mysqli_error();
         } else {
@@ -167,9 +171,11 @@
               <br/>
               Email        : <input type="email" id="email" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
               <br/>
+              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="###-###-####" Required value="<?php echo $memberphoneno;?>">
+              <br/>
               Password     : <input type="password" name="memberpassword" minlength='8' placeholder="8 characters or more" Required value="<?php echo $memberpassword;?>">
               <br/>
-              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="###-###-####" Required value="<?php echo $memberphoneno;?>">
+              Confirm Password     : <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="must match" Required value="<?php echo $memberpasswordCHECK;?>">
               <br/>
               Status :
                 <input type="radio" name="memberstatus" <?php if (isset($status) && $status=="e-board") 
