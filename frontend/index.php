@@ -228,7 +228,7 @@
               </p>
               <br/>
               <p>
-              <label>Bio    :</label> <input type="textarea" name="memberbio" pattern="[a-zA-Z0-9\s]+" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+              <label>Bio    :</label> <input type="textarea" name="memberbio" pattern="[a-zA-Z0-9\s.!]+" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
               </p>
               <br/>
               <p> <label> </label>
