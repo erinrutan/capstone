@@ -189,33 +189,51 @@
           <a class="close" href="#">&times;</a>
           <div class="content">
             <form method="POST">
-              Name         : <input type="text" name="membername" pattern="[a-zA-Z\s]+" placeholder="Enter Name" Required value="<?php echo $membername;?>">
+              <p>
+              <label>Name         :</label> <input type="text" name="membername" pattern="[a-zA-Z\s]+" placeholder="Enter Name" Required value="<?php echo $membername;?>">
+              </p>
               <br/>
-              Email        : <input type="email" id="email" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
+              <p>
+              <label>Email        :</label> <input type="email" id="email" name="memberemail" placeholder="Enter Email" Required value="<?php echo $memberemail;?>">
+              </p>
               <br/>
-              Phone Number : <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="###-###-####" Required value="<?php echo $memberphoneno;?>">
+              <p>
+              <label>Phone Number :</label> <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="memberphoneno" placeholder="###-###-####" Required value="<?php echo $memberphoneno;?>">
+              </p>
               <br/>
-              Password     : <input type="password" name="memberpassword" minlength='8' placeholder="8 characters or more" Required value="<?php echo $memberpassword;?>">
+              <p>
+              <label>Password     :</label> <input type="password" name="memberpassword" minlength='8' placeholder="8 characters or more" Required value="<?php echo $memberpassword;?>">
+              </p>
               <br/>
-              Confirm Password     : <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="must match" Required value="<?php echo $memberpasswordCHECK;?>">
+              <p>
+              <label>Confirm Password     :</label> <input type="password" name="memberpasswordCHECK" minlength='8' placeholder="must match" Required value="<?php echo $memberpasswordCHECK;?>">
+              </p>
               <br/>
-              Status :
+              <p>
+              <label>Status :</label>
                 <input type="radio" name="memberstatus" <?php if (isset($status) && $status=="e-board") 
                   echo "checked";?> value="e-board">E-board
                 <input type="radio" name="memberstatus" Required <?php if (isset($status) && $status=="member") 
                   echo "checked";?> value="member">Member
+              </p>
               <br/>
-              Side   : 
+              <p>
+              <label>Side   : </label>
                 <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="port") 
                   echo "checked";?> value="port">Port
                 <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="starboard") 
                   echo "checked";?> value="starboard">Starboard
                 <input type="radio" name="membersiderow" <?php if (isset($siderow) && $siderow=="coxswain") 
                   echo "checked";?> value="coxswain">Coxswain
+              </p>
               <br/>
-              Bio    : <input type="textarea" name="memberbio" pattern="[a-zA-Z0-9\s]+" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+              <p>
+              <label>Bio    :</label> <input type="textarea" name="memberbio" pattern="[a-zA-Z0-9\s]+" placeholder="Enter Bio" value="<?php echo $memberbio;?>">
+              </p>
               <br/>
+              <p> <label> </label>
               <input type="submit" name="submit" value="Save">
+              </p>
             </form>
           </div>
         </div>
