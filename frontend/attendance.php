@@ -193,9 +193,9 @@
                                         $mem = $row['membername'];
                                         echo $mem;
                                 ?> 
-                                </p>
                                 <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
                                 <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
+                                </p>
                                 <br/>
                                 <?php endwhile; ?>
 

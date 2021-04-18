@@ -157,6 +157,7 @@
                                     <p>
                                     <label>Description :</label> <input type="text" name='eventdescription' pattern='[a-zA-Z0-9\s.!]+' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                                     </p>
+                                    </br>
                                     <p> <label> </label>
                                     <input type="submit" class='buttonPop' name="submit" value="Save">
                                     </p>
