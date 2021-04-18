@@ -184,7 +184,7 @@
                             $sql = "SELECT eventname, eventlocation, substring(eventdate,12,5) as 'date', eventdescription 
                                     FROM event
                                     WHERE substring(eventdate,1,10) = '$date'
-                                    ORDER BY 'date';";
+                                    ORDER BY substring(eventdate,1,10);";
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
