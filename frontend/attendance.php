@@ -50,6 +50,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
+    <!-- For input field alignment -->
+    <style>
+        form  { display: table;
+                margin: 0 auto; }
+        p     { display: table-row; }
+        label { display: table-cell; }
+        input { display: table-cell; }
+    </style>
+
     <!-- For table -->
     <style>
         table {
@@ -178,18 +187,20 @@
                                 </select>
                                 <br/>
                                 <!-- Me trying to get radio button to work ;_; -->
+                                <p> 
                                 <?php
                                     while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
                                         $mem = $row['membername'];
                                         echo $mem;
                                 ?> 
+                                </p>
                                 <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
                                 <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
                                 <br/>
                                 <?php endwhile; ?>
 
                                 <br/>
-                                <input type="submit" name="takeAttendance" value="Save">
+                                <input type="submit" class='buttonPop' name="takeAttendance" value="Save">
                             </form>
                             
                         </div>  

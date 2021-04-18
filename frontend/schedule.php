@@ -41,6 +41,14 @@
 
     <title>CNU Rowing Club</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- For input field alignment -->
+    <style>
+        form  { display: table;
+                margin: 0 auto; }
+        p     { display: table-row; }
+        label { display: table-cell; }
+        input { display: table-cell; }
+    </style>
     <!-- For Button PopUp -->
     <style>
         .buttonPop {
@@ -150,7 +158,7 @@
                                     <label>Description :</label> <input type="text" name='eventdescription' pattern='[a-zA-Z0-9\s.!]+' placeholder="Enter Description" value="<?php echo $eventdescription;?>">
                                     </p>
                                     <p> <label> </label>
-                                    <input type="submit" name="submit" value="Save">
+                                    <input type="submit" class='buttonPop' name="submit" value="Save">
                                     </p>
                                     </form>
                                 </div>

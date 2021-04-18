@@ -232,7 +232,7 @@
               </p>
               <br/>
               <p> <label> </label>
-              <input type="submit" name="submit" value="Save">
+              <input type="submit" class='buttonPop' name="submit" value="Save">
               </p>
             </form>
           </div>
