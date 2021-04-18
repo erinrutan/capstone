@@ -185,7 +185,7 @@
                                     <option value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
-                                <br/></br>
+                                <br/><br/>
                                 <!-- Me trying to get radio button to work ;_; -->
                                 <p> <label>
                                 <?php
