@@ -185,14 +185,14 @@
                                     <option value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
-                                <br/>
+                                <br/></br>
                                 <!-- Me trying to get radio button to work ;_; -->
-                                <p> 
+                                <p> <label>
                                 <?php
                                     while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
                                         $mem = $row['membername'];
                                         echo $mem;
-                                ?> 
+                                ?> </label>
                                 <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
                                 <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
                                 </p>
