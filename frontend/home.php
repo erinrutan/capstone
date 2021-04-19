@@ -35,7 +35,8 @@
                     
                 </div>    
             </div>  -->
-            <img v-bind:src="image"> 
+            <div style="background-image: url('row2.jpeg');"> 
+            <!-- <img v-bind:src="image">  -->
             <div class="textarea">
                 <div class="center">
                     <div class="row">
