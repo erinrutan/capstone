@@ -1,7 +1,7 @@
 <!-- LOGIN PAGE -->
 <?php
   session_start();
-  echo $_SESSION['user'];
+  // echo $_SESSION['user'];
     // $hash = password_hash($givenPassword, PASSWORD_DEFAULT);
     // $verify = password_verify($inputPassword, $hash);
 
@@ -161,7 +161,7 @@
     
 
     <div class="center">
-    <div class="product-image">
+    <div class='grid-container'>
     <img src="logo.jpg" alt="Rowing Club Logo">
     </div>
       <form method="POST">
