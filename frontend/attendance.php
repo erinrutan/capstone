@@ -34,7 +34,7 @@
         echo " ALTERNATIVE ";
         $alt = $_POST[$mem];
         echo $alt;
-        
+
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
       
 
@@ -177,12 +177,12 @@
         <div id="takeAttendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
                 <div class="center">
                     <div class="box">
-                        <a class="buttonPop" href="#popup3">Take Attendance</a>
+                        <a class="buttonPop" href="#popup3">Mark Attendance</a>
                     </div>
                     <div id="popup3" class="overlay">
 
                         <div class="popup">
-                            <h2>Take Attendance</h2>
+                            <h2>Mark Attendance</h2>
                             <a class="close" href="#">&times;</a>
                             <div class="content">
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
@@ -193,22 +193,13 @@
                                         // $events_push($row['eventname']);
                                     ?>
                                     <option  value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
-                                    <?php echo $row['eventname']; endwhile; ?>
+                                    <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
-                                <!-- Me trying to get radio button to work ;_; -->
-                                
-                                <?php
-                                    while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
-                                        $mem = $row['membername'];
-                                        echo $mem;
-                                ?>
-                                <input type="radio" name="<?php echo $mem; ?>" value='yes'>Yes
-                                <input type="radio" name="<?php echo $mem; ?>" value='no' checked>No 
-                                
-                                <br/>
-                                <?php endwhile; ?>
+  
+                                <input type="radio" name="here" value="I'm here!">I'm here!
 
+                                <br/>
                                 <br/>
                                 <input type="submit" class='buttonPop' name="takeAttendance" value="Save">
                             </form>
