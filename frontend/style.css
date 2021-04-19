@@ -52,6 +52,7 @@ body {
     height: 50px;
     text-align: center;
     width: 50%;
+    margin: auto;
   }
 
   .product-image-back {
