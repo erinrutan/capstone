@@ -25,6 +25,8 @@
 
         $eventname = $_POST['eventname'];
         echo $eventname;
+
+        echo " HERE 2! ";
         
         $membername = $_POST[$mem];
         echo $membername;
@@ -39,6 +41,8 @@
         //     echo "Successfully Updated";
         // }
     }
+
+    
 
     mysqli_close($conn); // Close connection
 ?>

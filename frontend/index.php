@@ -70,6 +70,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="shortcut icon" type="image/jpg" href="favicon.png"/>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>CNU Rowing Club</title>
