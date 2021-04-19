@@ -47,6 +47,13 @@ body {
     text-align: left;
   }
 
+  .logo-image {
+    width: 60px;
+    height: 50px;
+    text-align: center;
+    width: 50%;
+  }
+
   .product-image-back {
     display: flex;
     flex-flow: wrap;
