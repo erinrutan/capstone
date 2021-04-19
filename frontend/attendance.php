@@ -22,12 +22,12 @@
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
 
-        $eventname = $_POST['eventname'];
+        $eventname = $_POST[$row['eventname']];
         echo $eventname;
 
         echo " HERE 2! ";
         
-        $membername = $_POST['attended'];
+        $membername = $_POST[$row['eventname']];
         echo $membername;
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
       
@@ -187,7 +187,7 @@
                                         // $events_push($row['eventname']);
                                     ?>
                                     <option  value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
-                                    <?php echo $row['eventname']; endwhile; ?>
+                                    <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
                                 <!-- Me trying to get radio button to work ;_; -->
