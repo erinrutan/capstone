@@ -222,7 +222,8 @@
                             from attends a, event e, member m
                             where a.eventid = e.eventid AND
                             a.memberid = m.memberid AND
-                            m.memberid = $user;";
+                            m.memberid = $user
+                            order by e.eventdate;";
     
                         $result = $conn->query($sql);
 
