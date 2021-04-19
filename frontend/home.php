@@ -22,6 +22,14 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
     ></script>
+    <style>
+        body {
+            background-image: url('row2.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style> 
 
 </head>
 <body>  
@@ -32,11 +40,10 @@
         <div id="app">
             <!-- <div class="col-xs-1">
                 <div class="product-image">
-                    
+                    <img v-bind:src="image">
                 </div>    
             </div>  -->
-            <div style="background-image: url('row2.jpeg');"> 
-            <!-- <img v-bind:src="image">  -->
+
             <div class="textarea">
                 <div class="center">
                     <div class="row">
