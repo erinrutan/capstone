@@ -28,8 +28,13 @@
 
         echo " HERE 2! ";
         
-        $membername = $_POST[$row['eventname']];
+        $membername = $_POST[$row['membername']];
         echo $membername;
+
+        echo " ALTERNATIVE ";
+        $alt = $_POST[$mem];
+        echo $alt;
+        
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
       
 
@@ -196,7 +201,7 @@
                                 <?php
                                     while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
                                         $mem = $row['membername'];
-                                        // echo $mem;
+                                        echo $mem;
                                 ?>
                                 <input type="radio" name="<?php echo $mem; ?>" value='yes'>Yes
                                 <input type="radio" name="<?php echo $mem; ?>" value='no' checked>No 
