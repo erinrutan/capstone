@@ -198,8 +198,8 @@
                                         $mem = $row['membername'];
                                         echo $mem;
                                 ?>
-                                <input type="radio" name="yes" value="<?php echo $mem; ?>">Yes
-                                <input type="radio" name="no" value="<?php echo $mem; ?>" checked>No 
+                                <input type="radio" name="<?php echo $mem; ?>" value='yes'>Yes
+                                <input type="radio" name="<?php echo $mem; ?>" value='no' checked>No 
                                 
                                 <br/>
                                 <?php endwhile; ?>
