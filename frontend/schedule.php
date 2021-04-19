@@ -177,7 +177,7 @@
                         </tr>
                         <?php 
                             $date = date("Y-m-d");
-                            echo $date;
+                            // echo $date;
 
                             $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
@@ -194,7 +194,7 @@
                                 . "</td><td>" . $row["eventlocation"] . "</td><td>" . $row["eventdescription"] . "</td></tr>";
                             }
                             echo "</table>";
-                            } else { echo "No Events Today"; }
+                            } else { echo "(No Events Today)"; }
                             $conn->close();
                         ?>
                     </table>

@@ -187,12 +187,12 @@
                                 </select>
                                 <br/><br/>
                                 <!-- Me trying to get radio button to work ;_; -->
-                                <p> <label>
+                                <p>
                                 <?php
                                     while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
                                         $mem = $row['membername'];
                                         echo $mem;
-                                ?> </label>
+                                ?>
                                 <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
                                 <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
                                 </p>
@@ -273,6 +273,7 @@
                         $conn->close();
                         ?>
                 </table>
+                <br/>
             </div>
 
         </div>
