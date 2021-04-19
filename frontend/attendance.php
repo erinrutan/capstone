@@ -186,7 +186,7 @@
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
                                         // $events_push($row['eventname']);
                                     ?>
-                                    <option value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
+                                    <option name="eventname" value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
