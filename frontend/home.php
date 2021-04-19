@@ -32,10 +32,10 @@
         <div id="app">
             <!-- <div class="col-xs-1">
                 <div class="product-image">
-                    <img v-bind:src="image"> 
+                    
                 </div>    
             </div>  -->
-        
+            <img v-bind:src="image"> 
             <div class="textarea">
                 <div class="center">
                     <div class="row">

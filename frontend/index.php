@@ -160,6 +160,7 @@
     </div> -->
 
     <div class="center">
+    <img src="logo.jpg" alt="Rowing Club Logo">
       <form method="POST">
         <p>
         <label>Email :</label> <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
