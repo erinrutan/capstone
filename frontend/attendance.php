@@ -192,7 +192,7 @@
                                 </select>
                                 <br/><br/>
                                 <!-- Me trying to get radio button to work ;_; -->
-                                <p>
+                                
                                 <?php
                                     while ($row = mysqli_fetch_array($members, MYSQLI_ASSOC)):
                                         $mem = $row['membername'];
@@ -200,7 +200,7 @@
                                 ?>
                                 <input type="radio" name="yes" value="<?php echo $mem; ?>">Yes
                                 <input type="radio" name="no" value="<?php echo $mem; ?>" checked>No 
-                                </p>
+                                
                                 <br/>
                                 <?php endwhile; ?>
 
