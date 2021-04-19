@@ -30,11 +30,11 @@
     <div class="center"><h1>CNU Rowing Club</h1></div>
     <div class="container-fluid">
         <div id="app">
-            <div class="col-xs-1">
+            <!-- <div class="col-xs-1">
                 <div class="product-image">
                     <img v-bind:src="image"> 
                 </div>    
-            </div> 
+            </div>  -->
         
             <div class="textarea">
                 <div class="center">

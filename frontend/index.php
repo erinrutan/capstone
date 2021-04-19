@@ -154,10 +154,10 @@
     </style>
 </head>
 <body>
-  <div class='grid-container'>
+  <!-- <div class='grid-container'>
     <div class="product-image">
       <img src="logo.jpg" alt="Rowing Club Logo">
-    </div>
+    </div> -->
 
     <div class="center">
       <form method="POST">
