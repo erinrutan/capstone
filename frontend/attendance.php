@@ -19,7 +19,6 @@
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
     if(isset($_POST['takeAttendance'])) {
-        // idk if this will work, needs work
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
 
@@ -28,7 +27,7 @@
 
         echo " HERE 2! ";
         
-        $membername = $_POST["attended"];
+        $membername = $_POST['attended'];
         echo $membername;
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
       
@@ -188,7 +187,7 @@
                                         // $events_push($row['eventname']);
                                     ?>
                                     <option  value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
-                                    <?php endwhile; ?>
+                                    <?php echo $row['eventname']; endwhile; ?>
                                 </select>
                                 <br/><br/>
                                 <!-- Me trying to get radio button to work ;_; -->
@@ -202,7 +201,7 @@
                                 <input type="radio" name="<?php echo $mem; ?>" value='no' checked>No 
                                 
                                 <br/>
-                                <?php endwhile; ?>
+                                <?php echo $mem; endwhile; ?>
 
                                 <br/>
                                 <input type="submit" class='buttonPop' name="takeAttendance" value="Save">

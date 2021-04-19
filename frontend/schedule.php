@@ -175,6 +175,7 @@
                             <th>Time</th>
                             <th>Location</th>
                             <th>Description</th>
+                            <th>Attend</th>
                         </tr>
                         <?php 
                             $date = date("Y-m-d");
