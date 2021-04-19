@@ -161,9 +161,9 @@
     
 
     <div class="center">
-    <!-- <div class='grid-container'> -->
-    <img src="logo.jpg" alt="Rowing Club Logo">
-    <!-- </div> -->
+      <div class="logo-image">
+        <img src="logo.jpg" alt="Rowing Club Logo">
+      </div>
       <form method="POST">
         <p>
         <label>Email :</label> <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
