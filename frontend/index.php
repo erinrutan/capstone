@@ -162,7 +162,7 @@
 
     <div class="center">
       <div class="logo-image">
-        <img src="logo.jpg" alt="Rowing Club Logo">
+        <img src="logo2.jpg" alt="Rowing Club Logo">
       </div>
       <form method="POST">
         <p>
