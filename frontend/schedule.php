@@ -240,6 +240,7 @@
             </div>
             <p><br></p>
         <!-- </div>  -->
+        <div id="calendar" style="display:<?php echo $memberis == "1" ? 'block':'none' ?>"> 
             <div class="container">
                 <!-- Calendar! -->
                 <div class="calendar">
@@ -263,7 +264,7 @@
                     <div class="days"></div>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="schedule.js"></script> 
