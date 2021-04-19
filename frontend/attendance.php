@@ -25,17 +25,12 @@
         echo $row;
         $eventname = $_POST[$row['eventname']];
         echo $eventname;
+        $event = $_POST['eventname'];
+        echo $event;
 
-        echo " HERE 2! ";
-        
-        $membername = $_POST[$row['membername']];
-        echo $membername;
+        echo " MADE IT TO END ";
 
-        echo " ALTERNATIVE ";
-        $alt = $_POST[$mem];
-        echo $alt;
-
-        // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
+        // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname' AND substring(eventdate,1,10)) = '$date';")];
       
 
         // $add = mysqli_query($conn,"INSERT INTO attends VALUES () ");
