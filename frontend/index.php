@@ -161,9 +161,9 @@
     
 
     <div class="center">
-      <!-- <div class="logo-image"> -->
+      <div class="product-image">
         <img src="logo2.jpg" alt="Rowing Club Logo">
-      <!-- </div> -->
+      </div>
       <form method="POST">
         <p>
         <label>Email :</label> <input type="email" id="email" name="inputemail" placeholder="Enter Email" Required value="<?php echo $inputemail;?>">
