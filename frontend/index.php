@@ -240,6 +240,7 @@
               <input type="submit" class='buttonPop' name="submit" value="Save">
               </p>
             </form>
+            <br/>
           </div>
         </div>
       </div>             
