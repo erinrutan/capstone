@@ -28,7 +28,7 @@
 
         echo " HERE 2! ";
         
-        $membername = $_POST[$mem];
+        $membername = $_POST["attended"];
         echo $membername;
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname';")];
       
@@ -197,8 +197,8 @@
                                         $mem = $row['membername'];
                                         echo $mem;
                                 ?>
-                                <input type="radio" name="<?php echo $mem; ?>" value="yes">Yes
-                                <input type="radio" name="<?php echo $mem; ?>" value="no" checked>No 
+                                <input type="radio" name="attended" value="yes">Yes
+                                <input type="radio" name="attended" value="no" checked>No 
                                 </p>
                                 <br/>
                                 <?php endwhile; ?>
