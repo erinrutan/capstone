@@ -198,11 +198,8 @@
                             <div class="content">
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
                             <h2>Event: <?php echo $currentEventName ?></h2>
-                                
-                                <br/><br/>
-  
+                                <br/>
                                 <input type="radio" name="here" value="I'm here!" Required>I'm here!
-
                                 <br/>
                                 <br/>
                                 <input type="submit" class='buttonPop' name="markAttendance" value="Save">
