@@ -23,16 +23,26 @@
     $currentEventName = $getEvent['eventname'];
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
     $currentEventTime = $getTime['time'];
-    echo " Event Name: ";
-    echo $currentEventName;
-    echo " Event ID: ";
-    echo $currentEventID;
+    $before = date('H:i:s',strtotime('-30 minutes',strtotime($currentEventTime)));
+    $after = date('H:i:s',strtotime('+30 minutes',strtotime($currentEventTime)));
+    // echo " Event Name: ";
+    // echo $currentEventName;
+    // echo " Event ID: ";
+    // echo $currentEventID;
     echo " Event Time: ";
     echo $currentEventTime;
+    echo " Before: ";
+    echo $before;
+    echo " After: ";
+    echo $after;
 
     $isEventToday = False;
     if ($getEvent != NULL) {
         $isEventToday = True;
+    }
+    $isEventNow = False;
+    if ($currentEventTime >= $before)) {
+
     }
     echo " Event today? ";
     echo $isEventToday;
