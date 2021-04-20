@@ -11,7 +11,7 @@
     // echo $memberstatus;
 
     $date = date("Y-m-d");
-    $time = date("h:i:sa");
+    $time = date("h:i");
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
@@ -24,6 +24,7 @@
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
     $currentEventTime = $getTime['time'];
     echo $currentEventTime;
+    echo $time;
 
     $beforeTime = date("H:i", strtotime("-30 minutes" . $currentEventTime));
     $afterTime = date("H:i", strtotime("+30 minutes" . $currentEventTime));
@@ -33,7 +34,7 @@
         $isEventToday = True;
     }
     $isEventNow = False;
-    if ($currentEventTime >= $beforeTime && $currentEventTime <= $afterTime) {
+    if ($time >= $beforeTime && $time <= $afterTime) {
         $isEventNow = True;
     }
 
