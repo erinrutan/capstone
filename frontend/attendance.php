@@ -14,12 +14,12 @@
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
-    $todayEvents = mysqli_query( $conn, $sql);
-    $theEvents = [];
-    while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
-        array_push($theEvents,$rows['eventname']);
-        echo $rows['eventname'];
-    endwhile; 
+    // $todayEvents = mysqli_query( $conn, $sql);
+    // $theEvents = [];
+    // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
+    //     array_push($theEvents,$rows['eventname']);
+    //     echo $rows['eventname'];
+    // endwhile; 
     // for 
     // echo $theEvents[0];
 
@@ -29,7 +29,7 @@
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
 
-        $event = $_POST['eventname'];
+        $event = $_POST['event'];
         echo $event;
 
         echo " MADE IT TO END ";
@@ -191,7 +191,7 @@
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
                                         // $events_push($row['eventname']);
                                     ?>
-                                    <option  value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
+                                    <option name='event' value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
