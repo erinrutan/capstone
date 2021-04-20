@@ -15,7 +15,15 @@
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
-    $theEvents = [];
+    $getEvent = mysqli_fetch_assoc($todayEvents);
+    $currentEventName = $getEvent["EventName"];
+    $curentEventID = $getEvent["EventID"];
+    echo $currentEventName;
+    echo $currentEventID;
+    $isEventToday = False;
+    if ($todayEvents) {
+        $isEventToday = True;
+    }
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
