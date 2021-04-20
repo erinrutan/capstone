@@ -13,7 +13,7 @@
     $date = date("Y-m-d");
     echo "DATE: ";
     echo $date;
-    echo " TIME: " + date("h:i:sa");
+    echo " TIME: " . date("h:i:sa");
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
