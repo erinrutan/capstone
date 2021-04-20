@@ -17,7 +17,7 @@
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
 
-    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' and eventlocation='test';";
+    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date'";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));    
     $currentEventID = $getEvent['eventid'];
     $currentEventName = $getEvent['eventname'];
