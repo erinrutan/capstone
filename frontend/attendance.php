@@ -14,7 +14,7 @@
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
-    // $todayEvents = mysqli_query( $conn, $sql);
+    $todayEvents = mysqli_query( $conn, $sql);
     // $theEvents = [];
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
@@ -189,7 +189,7 @@
                                     <?php 
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
                                     ?>
-                                    <option name='event' value="<?= $row['eventname']; ?>"><?php echo $row['eventname'];?></option>
+                                    <option name='event' value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
