@@ -18,7 +18,8 @@
     $todayEvents = mysqli_query( $conn, $sql);
 
     $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date'";
-    $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));    
+    $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));   
+    echo "EVENTS: " . $getEvent; 
     $currentEventID = $getEvent['eventid'];
     $currentEventName = $getEvent['eventname'];
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
