@@ -24,8 +24,8 @@
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
     $currentEventTime = $getTime['time'];
 
-    $beforeTime = $currentEventTime - strtotime('00:30');
-    $afterTime = $currentEventTime + strtotime('00:30');
+    $beforeTime = $currentEventTime - 30;
+    $afterTime = $currentEventTime + 30;
 
     // echo " Event Name: ";
     // echo $currentEventName;
