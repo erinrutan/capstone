@@ -20,8 +20,8 @@
 
     $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date';";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));    
-    $curentEventID = $_POST[$getEvent['eventid']];
-    $currentEventName = $_POST[$getEvent['eventname']];
+    $curentEventID = $getEvent['eventid'];
+    $currentEventName = $getEvent['eventname'];
     echo " Event Name: ";
     echo $currentEventName;
     echo " Event ID: ";
