@@ -54,7 +54,10 @@
         $membername = mysqli_fetch_assoc(mysqli_query($conn, "SELECT membername FROM member where memberid = '$user';"))['membername'];
      
         $here = $_POST['here'];
-        echo $here;
+       
+        if ($here === "I'm here!") {
+            echo "Made it";
+        }
 
         // echo $theEvents[0];
 
@@ -220,7 +223,7 @@
                                 </select>
                                 <br/><br/>
   
-                                <input type="radio" name="here" value="I'm here!" Required>I'm here!
+                                <input type="radio" name="here" value="I'm here!" checked Required>I'm here!
 
                                 <br/>
                                 <br/>
