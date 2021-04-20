@@ -15,7 +15,7 @@
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
-    // $theEvents = [];
+    $theEvents = [];
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
@@ -32,7 +32,9 @@
         $event = $_POST['event'];
         echo $event;
 
-        echo " MADE IT TO END ";
+        echo " HERE 2 ";
+
+        echo $theEvents[0];
 
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname' AND substring(eventdate,1,10)) = '$date';")];
       
@@ -188,6 +190,7 @@
                                 <select name="list">
                                     <?php 
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
+                                        array_push($theEvents, $row['eventname']);
                                     ?>
                                     <option name='event' value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
                                     <?php endwhile; ?>
