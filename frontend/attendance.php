@@ -2,34 +2,20 @@
 <?php
     session_start();
     $user = $_SESSION['user'];
-    // echo $user;
 
     $conn = mysqli_connect('localhost', 'rowingguy', 'password', 'rowing'); // Create connection
 
     $getuser = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM member WHERE memberid = '$user';"));
     $memberstatus = $getuser["memberstatus"];
-    // echo $memberstatus;
 
     $date = date("Y-m-d");
     $time = date("h:i");
     $currentTimeCheckBefore = date("H:i", strtotime("-30 minutes" . $time));
     $currentTimeCheckAfter = date("H:i", strtotime("+30 minutes" . $time));
 
-    echo "TIME: " . $time;
-    echo "BEFORE: " . $currentTimeCheckBefore;
-    echo "AFTER: " . $currentTimeCheckAfter;
-
-    // $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
-    //         FROM event
-    //         WHERE substring(eventdate,1,10) = '$date';";
-    // $todayEvents = mysqli_query( $conn, $sql);
-    echo $time >= $currentTimeCheckBefore;
-    echo $time <= $currentTimeCheckAfter;
-
     $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' AND substring(eventdate,12,5) >= '$currentTimeCheckBefore' AND substring(eventdate,12,5) <= '$currentTimeCheckAfter';";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));   
     $currentEventID = $getEvent['eventid'];
-    echo " EVENT ID: " . $currentEventID;
     $currentEventName = $getEvent['eventname'];
 
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
@@ -47,15 +33,6 @@
         $isEventNow = True;
     }
 
-
-    // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
-    //     array_push($theEvents,$rows['eventname']);
-    //     echo $rows['eventname'];
-    // endwhile; 
-    // for 
-    // echo $theEvents[0];
-
-    $members = mysqli_query($conn, "SELECT membername FROM member;");
 
     if(isset($_POST['markAttendance'])) {
         
