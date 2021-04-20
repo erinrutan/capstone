@@ -11,7 +11,7 @@
     // echo $memberstatus;
 
     $date = date("Y-m-d");
-    $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
+    $sql = "SELECT * substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
