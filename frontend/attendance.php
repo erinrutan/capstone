@@ -208,7 +208,7 @@
                                 </select>
                                 <br/><br/>
   
-                                <input type="radio" name="here" value="I'm here!" >I'm here!
+                                <input type="radio" name="here" value="I'm here!" Required>I'm here!
 
                                 <br/>
                                 <br/>

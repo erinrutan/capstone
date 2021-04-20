@@ -31,8 +31,8 @@
         if(!$insert) {
             echo mysqli_error();
         } else {
-            redirect("index.php");
-            echo "Account sucessfully created";
+            // redirect("index.php");
+            // echo "Account sucessfully created";
         }
     }
 
@@ -50,7 +50,7 @@
        
       if (password_verify($inputpassword, $dbPassword)) {
         $_SESSION['user'] = $userid;
-        echo "SUCCESS, PASSWORDS MATCH. ACCOUNT VALID";
+        // echo "SUCCESS, PASSWORDS MATCH. ACCOUNT VALID";
         redirect("home.php");
       } else {
         echo "INCORRECT EMAIL OR PASSWORD";
