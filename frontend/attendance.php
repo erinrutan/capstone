@@ -26,10 +26,10 @@
     echo $time >= $currentTimeCheckBefore;
     echo $time <= $currentTimeCheckAfter;
 
-    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' AND substring(eventdate,12,5) >= $currentTimeCheckBefore AND substring(eventdate,12,5) <= $currentTimeCheckAfter";
+    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' AND substring(eventdate,12,5) >= '$currentTimeCheckBefore' AND substring(eventdate,12,5) <= '$currentTimeCheckAfter';";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));   
     $currentEventID = $getEvent['eventid'];
-    echo $currentEventID;
+    echo " EVENT ID: " . $currentEventID;
     $currentEventName = $getEvent['eventname'];
 
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
