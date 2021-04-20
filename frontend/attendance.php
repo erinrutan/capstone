@@ -57,23 +57,9 @@
        
         if ($here === "I'm here!") {
             mysqli_query($conn, "INSERT INTO attends VALUES ('$memberid', '$membername', '$eventid', '$event');"); 
+            echo "Thank you for attending!";
         }
-
-        // echo $theEvents[0];
-
-        // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname' AND substring(eventdate,1,10)) = '$date';")];
-      
-
-        // $add = mysqli_query($conn,"INSERT INTO attends VALUES () ");
-
-        // if(!$add) {
-        //     echo mysqli_error();
-        // } else {
-        //     echo "Successfully Updated";
-        // }
     }
-
-    
 
     mysqli_close($conn); // Close connection
 ?>
