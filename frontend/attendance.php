@@ -19,7 +19,7 @@
     while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
         array_push($theEvents,$rows['eventname']);
     endwhile; 
-    echo $theEvents;
+    echo $theEvents[0];
 
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
