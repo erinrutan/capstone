@@ -22,15 +22,16 @@
     $getEvent = mysqli_fetch_assoc($todayEvents);
     $currentEventName = $_POST[$getEvent['eventname']];
     $curentEventID = $_POST[$getEvent['eventid']];
-    echo "Start ";
+    echo " Event Name: ";
     echo $currentEventName;
+    echo " Event ID: ";
     echo $currentEventID;
     $isEventToday = False;
     if ($theEvent != NULL) {
         $isEventToday = True;
     }
     echo $isEventToday;
-    echo " Here? ";
+    echo "  End.";
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
