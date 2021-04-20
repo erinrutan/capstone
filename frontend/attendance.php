@@ -15,6 +15,7 @@
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
+    echo $todayEvents;
 
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
