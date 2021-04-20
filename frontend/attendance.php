@@ -23,8 +23,10 @@
     $currentEventName = $getEvent['eventname'];
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
     $currentEventTime = $getTime['time'];
-    $beforeTime = $currentEventTime - 60*60;
-    $afterTime = $currentEventTime + 60*60;
+
+    $beforeTime = strtotime('-30 minutes',$currentEventTime);
+    $afterTime = strtotime('+30 minutes',$currentEventTime);
+
     // echo " Event Name: ";
     // echo $currentEventName;
     // echo " Event ID: ";
