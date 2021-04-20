@@ -16,8 +16,8 @@
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
     $theEvents = [];
-    while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
-        array_push($theEvents,$row['eventname']);
+    while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
+        array_push($theEvents,$rows['eventname']);
     endwhile; 
     echo $theEvents;
 
@@ -27,9 +27,6 @@
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
 
-        echo $row;
-        $eventname = $_POST[$row['eventname']];
-        echo $eventname;
         $event = $_POST['eventname'];
         echo $event;
 
