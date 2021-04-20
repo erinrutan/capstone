@@ -18,8 +18,10 @@
     $theEvents = [];
     while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
         array_push($theEvents,$rows['eventname']);
+        echo $rows['eventname'];
     endwhile; 
-    echo $theEvents[0];
+    // for 
+    // echo $theEvents[0];
 
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
