@@ -43,6 +43,7 @@
         $isEventToday = True;
     }
     $isEventNow = False;
+    echo $currentEventTime >= $before; 
     if ($currentEventTime >= $before && $currentEventTime <= $after) {
         echo " Got Into If";
         $isEventNow = True;
