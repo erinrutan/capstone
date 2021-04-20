@@ -49,9 +49,9 @@
     if(isset($_POST['markAttendance'])) {
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
-        $event = $_POST[$currentEventName];
-        $eventid = $_POST[$currentEventID];
-        $memberid = $_POST[$user];
+        $event = $currentEventName;
+        $eventid = $currentEventID;
+        $memberid = $user;
         $membername = mysqli_fetch_assoc(mysqli_query($conn, "SELECT membername FROM member where memberid = '$user';"))['membername'];
         echo "Event name: " . $event;
         echo " Event ID: " . $eventid;
