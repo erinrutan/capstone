@@ -9,6 +9,5 @@ Web Application for CNU Rowing Club
 What this repository includes:
  - Planning documents, early diagrams, documentation
  - front end html, JavaScript (Vue.js), and css code to construct the web page
- - AWS Amplify CLI
 
 Basically everything pertaining to this project
