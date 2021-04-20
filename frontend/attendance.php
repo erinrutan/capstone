@@ -16,8 +16,8 @@
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
     $getEvent = mysqli_fetch_assoc($todayEvents);
-    $currentEventName = $_POST[$getEvent["EventName"]];
-    $curentEventID = $_POST[$getEvent["EventID"]];
+    $currentEventName = $_POST[$getEvent['eventname']];
+    $curentEventID = $_POST[$getEvent['eventid']];
     echo "HELLO";
     echo $currentEventName;
     echo $currentEventID;
