@@ -43,11 +43,14 @@
         $isEventToday = True;
     }
     $isEventNow = False;
-    // if ($currentEventTime >= $before)) {
-
-    // }
+    if ($currentEventTime >= $before && $currentEventTime <= $after) {
+        $isEventNow = True;
+    }
     echo " Event today? ";
     echo $isEventToday;
+    echo " Event now? ";
+    echo $isEventNow;
+    
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
