@@ -11,15 +11,15 @@
     // echo $memberstatus;
 
     $date = date("Y-m-d");
+    echo "DATE: ";
+    echo $date;
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
 
-    $sql = "SELECT * FROM event
-    WHERE substring(eventdate,1,10) = '$date';";
-    $theEvent = mysqli_query( $conn, $sql);    
-    $getEvent = mysqli_fetch_assoc($theEvent);
+    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date';";
+    $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));    
     $curentEventID = $_POST[$getEvent['eventid']];
     $currentEventName = $_POST[$getEvent['eventname']];
     echo " Event Name: ";
@@ -27,9 +27,10 @@
     echo " Event ID: ";
     echo $currentEventID;
     $isEventToday = False;
-    if ($theEvent != NULL) {
+    if ($getEvent != NULL) {
         $isEventToday = True;
     }
+    echo " Event today? ";
     echo $isEventToday;
     echo "  End.";
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
