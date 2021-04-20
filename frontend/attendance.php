@@ -47,17 +47,14 @@
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
     if(isset($_POST['markAttendance'])) {
-        // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
-        echo "HERE!";
+        
         $event = $currentEventName;
         $eventid = $currentEventID;
         $memberid = $user;
         $membername = mysqli_fetch_assoc(mysqli_query($conn, "SELECT membername FROM member where memberid = '$user';"))['membername'];
-        echo "Event name: " . $event;
-        echo " Event ID: " . $eventid;
-        echo " Member ID: " . $memberid;
-        echo " Member name: " . $membername;
-        echo " HERE 2 ";
+     
+        $here = $_POST['here'];
+        echo $here;
 
         // echo $theEvents[0];
 
@@ -223,7 +220,7 @@
                                 </select>
                                 <br/><br/>
   
-                                <input type="radio" name="here" value="I'm here!">I'm here!
+                                <input type="radio" name="here" value="I'm here!" Required>I'm here!
 
                                 <br/>
                                 <br/>
