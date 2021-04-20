@@ -17,7 +17,7 @@
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
 
-    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date';";
+    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' and eventlocation='test';";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));    
     $currentEventID = $getEvent['eventid'];
     $currentEventName = $getEvent['eventname'];
@@ -50,7 +50,7 @@
     echo $isEventToday;
     echo " Event now? ";
     echo $isEventNow;
-    
+
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
