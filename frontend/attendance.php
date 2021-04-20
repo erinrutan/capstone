@@ -25,7 +25,7 @@
 
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
-    if(isset($_POST['takeAttendance'])) {
+    if(isset($_POST['markAttendance'])) {
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
 
@@ -173,7 +173,7 @@
 
     <div id="attendance">
         <div class="home-page">
-        <div id="takeAttendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+        <div id="markAttendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
                 <div class="center">
                     <div class="box">
                         <a class="buttonPop" href="#popup3">Mark Attendance</a>
@@ -200,7 +200,7 @@
 
                                 <br/>
                                 <br/>
-                                <input type="submit" class='buttonPop' name="takeAttendance" value="Save">
+                                <input type="submit" class='buttonPop' name="markAttendance" value="Save">
                             </form>
                             
                         </div>  
