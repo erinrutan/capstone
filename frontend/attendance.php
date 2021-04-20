@@ -15,7 +15,11 @@
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
     $todayEvents = mysqli_query( $conn, $sql);
-    echo $todayEvents;
+    $theEvents = [];
+    while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
+        array_push($theEvents,$row['eventname']);
+    endwhile; 
+    echo $theEvents;
 
     $members = mysqli_query($conn, "SELECT membername FROM member;");
 
