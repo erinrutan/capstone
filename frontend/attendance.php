@@ -12,20 +12,20 @@
 
     $date = date("Y-m-d");
     $time = date("h:i");
-    $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
-            FROM event
-            WHERE substring(eventdate,1,10) = '$date';";
-    $todayEvents = mysqli_query( $conn, $sql);
+    $currentTimeCheckBefore = date("H:i", strtotime("-30 minutes" . $time));
+    $currentTimeCheckAfter = date("H:i", strtotime("+30 minutes" . $time));
+    // $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
+    //         FROM event
+    //         WHERE substring(eventdate,1,10) = '$date';";
+    // $todayEvents = mysqli_query( $conn, $sql);
 
-    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date'";
+    $sql = "SELECT * FROM event WHERE substring(eventdate,1,10) = '$date' AND substring(eventdate,12,5) >= $currentTimeCheckBefore AND AND substring(eventdate,12,5) <= $currentTimeCheckAfter";
     $getEvent = mysqli_fetch_assoc(mysqli_query( $conn, $sql));   
-    echo "EVENTS: " . $getEvent; 
     $currentEventID = $getEvent['eventid'];
     $currentEventName = $getEvent['eventname'];
+
     $getTime = mysqli_fetch_assoc(mysqli_query($conn, "SELECT substring(eventdate,12,5) as 'time' FROM event WHERE eventid = '$currentEventID';"));
     $currentEventTime = $getTime['time'];
-    echo $currentEventTime;
-    echo $time;
 
     $beforeTime = date("H:i", strtotime("-30 minutes" . $currentEventTime));
     $afterTime = date("H:i", strtotime("+30 minutes" . $currentEventTime));
