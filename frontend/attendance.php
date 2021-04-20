@@ -198,14 +198,7 @@
                             <div class="content">
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
                             <h2>Event: <?php echo $currentEventName ?></h2>
-                                <select name="list">
-                                    <?php 
-                                    while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
-                                        array_push($theEvents, $row['eventname']);
-                                    ?>
-                                    <option name='event' value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
-                                    <?php endwhile; ?>
-                                </select>
+                                
                                 <br/><br/>
   
                                 <input type="radio" name="here" value="I'm here!" Required>I'm here!
