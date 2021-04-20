@@ -13,6 +13,7 @@
     $date = date("Y-m-d");
     echo "DATE: ";
     echo $date;
+    echo " TIME: " + date("h:i:sa");
     $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
             FROM event
             WHERE substring(eventdate,1,10) = '$date';";
@@ -32,7 +33,6 @@
     }
     echo " Event today? ";
     echo $isEventToday;
-    echo "  End.";
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
     //     echo $rows['eventname'];
