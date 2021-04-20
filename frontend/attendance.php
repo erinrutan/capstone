@@ -56,7 +56,7 @@
         $here = $_POST['here'];
        
         if ($here === "I'm here!") {
-            echo "Made it";
+            mysqli_query($conn, "INSERT INTO attends VALUES ('$memberid', '$membername', '$eventid', '$event');"); 
         }
 
         // echo $theEvents[0];
@@ -208,11 +208,11 @@
                     <div id="popup3" class="overlay">
 
                         <div class="popup">
-                            <h2>Mark Attendance</h2>
+                            <h2>Mark Attendance for</h2>
                             <a class="close" href="#">&times;</a>
                             <div class="content">
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
-                            <h2><?php echo $currentEventName ?></h2>
+                            <h2>Event: <?php echo $currentEventName ?></h2>
                                 <select name="list">
                                     <?php 
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
