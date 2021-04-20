@@ -27,32 +27,15 @@
     $beforeTime = date("H:i", strtotime("-30 minutes" . $currentEventTime));
     $afterTime = date("H:i", strtotime("+30 minutes" . $currentEventTime));
 
-    // echo " Event Name: ";
-    // echo $currentEventName;
-    // echo " Event ID: ";
-    // echo $currentEventID;
-    echo " Event Time: ";
-    echo $currentEventTime;
-    echo " Before: ";
-    echo $beforeTime;
-    echo " After: ";
-    echo $afterTime;
-
     $isEventToday = False;
     if ($getEvent != NULL) {
         $isEventToday = True;
     }
     $isEventNow = False;
-    echo $currentEventTime >= $beforeTime; 
-    echo $currentEventTime <= $afterTime;
     if ($currentEventTime >= $beforeTime && $currentEventTime <= $afterTime) {
-        echo " Got Into If";
         $isEventNow = True;
     }
-    echo " Event today? ";
-    echo $isEventToday;
-    echo " Event now? ";
-    echo $isEventNow;
+
 
     // while ($rows = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
     //     array_push($theEvents,$rows['eventname']);
@@ -66,13 +49,17 @@
     if(isset($_POST['markAttendance'])) {
         // $memberid = $_POST[mysqli_query($conn, "SELECT memberid FROM member WHERE membername = '$mem';")];
         echo "HERE!";
-
-        $event = $_POST['event'];
-        echo $event;
-
+        $event = $_POST[$currentEventName];
+        $eventid = $_POST[$currentEventID];
+        $memberid = $_POST[$user];
+        $membername = mysqli_query($conn, "SELECT membername FROM member where memberid = '$user';");
+        echo "Event name: " . $event;
+        echo " Event ID: " . $eventid;
+        echo " Member ID: " . $memberid;
+        echo " Member name: " . $membername;
         echo " HERE 2 ";
 
-        echo $theEvents[0];
+        // echo $theEvents[0];
 
         // $eventid = $_POST[mysqli_query($conn, "SELECT eventid FROM event WHERE eventname = '$eventname' AND substring(eventdate,1,10)) = '$date';")];
       
@@ -225,6 +212,7 @@
                             <a class="close" href="#">&times;</a>
                             <div class="content">
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
+                            <h2><?php echo $currentEventName ?></h2>
                                 <select name="list">
                                     <?php 
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
