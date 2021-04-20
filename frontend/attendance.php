@@ -187,11 +187,9 @@
                             <form method="post" action="<?= $_SERVER['rowing']; ?>">
                                 <select name="list">
                                     <?php 
-                                    // $events = array();  //  CAN'T FIGURE OUT HOW TO GET THIS TO WORK
                                     while ($row = mysqli_fetch_array($todayEvents,MYSQLI_ASSOC)): 
-                                        // $events_push($row['eventname']);
                                     ?>
-                                    <option name='event' value="<?= $row['eventname']; ?>"><?= $row['eventname'];?></option>
+                                    <option name='event' value="<?= $row['eventname']; ?>"><?php echo $row['eventname'];?></option>
                                     <?php endwhile; ?>
                                 </select>
                                 <br/><br/>
