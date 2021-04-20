@@ -25,7 +25,7 @@
         if(!$insert){
             echo "ERROR";
         } else {
-            // echo "New event created!";
+            echo "New event created!";
         }
     }
     mysqli_close($conn); // Close connection

@@ -49,8 +49,8 @@
                 if (!$update) {
                     echo mysqli_error();
                 } else {
-                    // redirect('settings.php');
-                    // echo "Password Changed";
+                    redirect('settings.php');
+                    echo "Password Changed";
                 }
             } else {
                 echo '<script type="text/javascript">';

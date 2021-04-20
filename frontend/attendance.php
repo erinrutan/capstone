@@ -185,7 +185,7 @@
 
     <div id="attendance">
         <div class="home-page">
-        <div id="markAttendance" style="display:<?php echo $memberstatus == "e-board" ? 'block':'none' ?>"> 
+        <div id="markAttendance" style="display:<?php echo $iseventNow == true ? 'block':'none' ?>"> 
                 <div class="center">
                     <div class="box">
                         <a class="buttonPop" href="#popup3">Mark Attendance</a>

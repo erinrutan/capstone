@@ -31,8 +31,8 @@
         if(!$insert) {
             echo mysqli_error();
         } else {
-            // redirect("index.php");
-            // echo "Account sucessfully created";
+            redirect("index.php");
+            echo "Account sucessfully created";
         }
     }
 
