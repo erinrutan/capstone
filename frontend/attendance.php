@@ -14,6 +14,11 @@
     $time = date("h:i");
     $currentTimeCheckBefore = date("H:i", strtotime("-30 minutes" . $time));
     $currentTimeCheckAfter = date("H:i", strtotime("+30 minutes" . $time));
+
+    echo "TIME: " . $time;
+    echo "BEFORE: " . $currentTimeCheckBefore;
+    echo "AFTER: " . $currentTimeCheckAfter;
+
     // $sql = "SELECT eventname, substring(eventdate,12,5) as 'date'
     //         FROM event
     //         WHERE substring(eventdate,1,10) = '$date';";
