@@ -57,7 +57,6 @@
        
         if ($here === "I'm here!") {
             mysqli_query($conn, "INSERT INTO attends VALUES ('$memberid', '$membername', '$eventid', '$event');"); 
-            echo "Thank you for attending!";
         }
     }
 
